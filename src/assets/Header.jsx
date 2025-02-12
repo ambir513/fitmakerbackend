@@ -70,8 +70,8 @@ export default function Navbar() {
       <motion.div
         initial={{ x: "-100%" }}
         animate={{ x: menuOpen ? 0 : "-100%" }}
-        transition={{ duration: 0.4 }}
-        className="fixed top-0 left-0 h-screen w-64 bg-white shadow-2xl flex flex-col items-start gap-6 py-8 px-6 z-40 rounded-r-lg"
+        transition={{ duration: 0.3 }}
+        className="fixed top-0 left-0 h-screen w-64 bg-white shadow-2xl flex flex-col items-start gap-6 py-8 px-6 z-40 "
       >
         <h2 className="text-xl font-bold text-red-600">Menu</h2>
         <Link to="/" className="text-lg font-medium text-gray-800 hover:text-red-500 transition duration-300" onClick={() => setMenuOpen(false)}>Home</Link>
