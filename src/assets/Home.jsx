@@ -75,20 +75,27 @@ export default function Home() {
     <>
     <section className="relative w-full h-[730px] flex items-center justify-center px-12 overflow-hidden">
       {slides.map((slide, index) => (
-        <motion.video
-          key={index}
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={index === current ? { opacity: 1, scale: 1 } : { opacity: 0 }}
-          transition={{ duration: 1 }}
-          className="absolute inset-0 w-full h-full object-cover"
-          autoPlay
-          loop
-          muted
-        >
-          <source src={slide.video} type="video/mp4" />
-        </motion.video>
-      ))}
-
+      <motion.video
+      key={index}
+      initial={{ opacity: 0, scale: 1.1 }}
+      animate={index === current ? { opacity: 1, scale: 1 } : { opacity: 0 }}
+      transition={{ duration: 1 }}
+      className="absolute inset-0 w-full h-full object-cover"
+      autoPlay
+      loop
+      muted
+      playsInline
+      style={{
+        willChange: "transform, opacity",
+        transform: "translateZ(0)",
+        backfaceVisibility: "hidden"
+      }}
+    >
+      <source src={slide.video} type="video/mp4" />
+    </motion.video>
+    
+      ))} 
+  
 
 
       {/* Overlay */}
