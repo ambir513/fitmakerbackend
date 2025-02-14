@@ -244,12 +244,6 @@ export default function Home() {
     We’re committed to bringing you the best workout experience.
   </span>
 </motion.h2>
-
-
-
-
-
-
 </div>
 
 

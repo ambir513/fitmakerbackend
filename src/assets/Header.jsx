@@ -22,9 +22,11 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 px-6 py-3 flex items-center justify-between transition-all duration-300
-      ${scrolling ? "bg-white shadow-lg border-none" : "bg-transparent border-b border-white/20"}`}>
-      
+    <nav className={`fixed top-0 left-0 w-screen z-50 px-6 py-3 flex items-center justify-between transition-all duration-300
+      ${scrolling ? "bg-white shadow-lg border-none" : "bg-transparent border-b border-white/20"}`}
+      style={{ maxWidth: "100vw", overflowX: "hidden" }}>
+
+
       {/* Logo */}
       <div className="flex items-center gap-3">
         <div className="bg-gradient-to-r from-red-500 to-orange-500 w-12 h-12 rounded-lg flex items-center justify-center">
