@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FaDumbbell } from "react-icons/fa";
 import { FiMenu, FiX } from "react-icons/fi"; 
 import { motion } from "framer-motion"; 
+import './Home.css';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,6 +17,8 @@ export default function Navbar() {
         setScrolling(false);
       }
     };
+
+    
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
