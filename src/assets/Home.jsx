@@ -75,27 +75,29 @@ export default function Home() {
     <>
     <section className="relative w-full h-[730px] flex items-center justify-center px-12 overflow-hidden">
       {slides.map((slide, index) => (
-      <motion.video
-      key={index}
-      initial={{ opacity: 0, scale: 1.1 }}
-      animate={index === current ? { opacity: 1, scale: 1 } : { opacity: 0 }}
-      transition={{ duration: 1 }}
-      className="absolute inset-0 w-full h-full object-cover"
-      autoPlay
-      loop
-      muted
-      playsInline
-      style={{
-        willChange: "transform, opacity",
-        transform: "translateZ(0)",
-        backfaceVisibility: "hidden"
-      }}
-    >
-      <source src={slide.video} type="video/mp4" />
-    </motion.video>
-    
-      ))} 
-  
+        <motion.video
+        key={index}
+        initial={{ opacity: 0, scale: 1.05 }}
+        animate={index === current ? { opacity: 1, scale: 1 } : { opacity: 0 }}
+        transition={{ duration: 0.1, ease: "easeInOut" }} // Smooth transition
+        className="absolute inset-0 w-full h-full object-cover"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        style={{
+          willChange: "transform, opacity",
+          transform: "translateZ(0)",
+          backfaceVisibility: "hidden",
+          objectFit: "cover"
+        }}
+      >
+        <source src={slide.video} type="video/mp4" />
+      </motion.video>
+      
+      ))}
+
 
 
       {/* Overlay */}
@@ -165,7 +167,7 @@ export default function Home() {
   {/* Main Image Section */}
   <div className="relative rounded-lg overflow-hidden border-[6px] border-l-orange-600 shadow-xl">
     <img
-      src="https://images.pexels.com/photos/3757645/pexels-photo-3757645.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+      src="https://images.pexels.com/photos/116077/pexels-photo-116077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
       alt="Gym Workout"
       className="w-full h-auto object-cover"
     />
