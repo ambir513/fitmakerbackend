@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import video1 from "../assets/T1.mp4";
 import video2 from "../assets/T2.mp4";
 import video3 from "../assets/T3.mp4";
+import { MdArrowForward, MdArrowBack } from "react-icons/md";
+import { FaQuoteRight } from "react-icons/fa";
+import './Home.css'
 
 
 const slides = [
@@ -53,6 +56,32 @@ const trainers = [
   { name: "Tom Blake", role: "Personal Trainer", img: "trainer4.jpg" },
 ];
 
+const testimonials = [
+  {
+    name: "Steven Haward",
+    role: "Our Trainer",
+    image: "https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=600",
+    review:
+      "I've been using Fitmaker for the past three months, and I'm genuinely impressed. The website is easy to navigate, and everything is laid out clearly. I purchased the premium plan, and the personalized coaching has been a game-changer for me. My coach is incredibly supportive and always available to answer my questions. The weekly video sessions ",
+  },
+  {
+    name: "Josh Oliver",
+    role: "Fitness Enthusiast",
+    image: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=600",
+    review:
+      "Fitmaker has transformed my fitness journey! The trainers are amazing, and the content is top-notch.",
+  },
+  {
+    name: "Edward Hawley",
+    role: "Athlete",
+    image: "https://images.pexels.com/photos/1182825/pexels-photo-1182825.jpeg?auto=compress&cs=tinysrgb&w=600",
+    review:
+      "Highly professional coaching and well-structured programs. I've seen great results!",
+  },
+];
+
+
+
 
 
 export default function Home() {
@@ -71,6 +100,22 @@ export default function Home() {
     setCurrent((prev) => (prev + 1) % slides.length);
   };
 
+  const [index, setIndex] = useState(0);
+
+  const nextTestimonial = () => {
+    setIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setIndex((prevIndex) =>
+      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+    );
+  };
+
+
+
+
+ 
   return (
     <>
     <section className="relative w-full h-[730px] flex items-center justify-center px-12 overflow-hidden">
@@ -158,6 +203,9 @@ export default function Home() {
         Next Slide →
       </motion.div>
     </section>
+
+    
+    
 
 
     <div className="bg-white text-black py-24 px-6 md:px-16">
@@ -257,6 +305,8 @@ export default function Home() {
 
 
 
+
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {services.map((service, index) => (
             <motion.div
@@ -287,6 +337,8 @@ export default function Home() {
         </div>
       </div>
     </section>
+
+    
 
 
     <div className="relative h-96 overflow-hidden flex items-center">
@@ -403,7 +455,7 @@ export default function Home() {
 
     <section className="bg-white py-16 px-8 text-black">
       <div className="text-center mb-8">
-        <h2 className="text-4xl font-bold">Meet Our <span className="text-red-500">Trainers</span></h2>
+        <h2 className="text-4xl font-bold">Meet Our <span className="text-orange-500">Trainers</span></h2>
         <p className="mt-2 text-gray-300">At This Part You Can See Some Of Our Trainers And Their Work.</p>
       </div>
       <div className="grid md:grid-cols-4 gap-6">
@@ -426,6 +478,79 @@ export default function Home() {
     </section>
 
     
+
+
+    <div className="flex flex-col items-center  text-white py-20 px-8 relative w-screen max-w-full mx-auto">
+    <div className="absolute inset-0 w-full h-full bg-fixed bg-[url('https://images.pexels.com/photos/927437/pexels-photo-927437.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-no-repeat bg-cover bg-center"></div>
+
+    
+
+
+      <h2 className="text-4xl sm:text-5xl font-extrabold mb-4 text-center relative z-10">
+        What Our <span className="text-orange-500">Customers Say</span>
+      </h2>
+      <p className="text-lg text-gray-300 mb-8 max-w-2xl text-center relative z-10">
+        Take a look at some of the inspiring stories from our community members.
+      </p>
+      <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 max-w-6xl relative z-10">
+        <motion.img
+          key={testimonials[index].image}
+          src={testimonials[index].image}
+          alt={testimonials[index].name}
+          className="w-64 h-64 md:w-80 md:h-80 rounded-lg shadow-xl object-cover"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: 50 }}
+          transition={{ duration: 0.5 }}
+        />
+        <motion.div
+          key={testimonials[index].name}
+          className="bg-orange-500 text-white p-6 md:p-8 rounded-xl shadow-xl max-w-xl"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.5 }}
+        >
+          <h3 className="text-xl md:text-2xl font-bold">{testimonials[index].name}</h3>
+          <p className="text-sm md:text-lg text-gray-300 mb-4">{testimonials[index].role}</p>
+          <p className="text-sm md:text-base leading-relaxed">{testimonials[index].review}</p>
+          <FaQuoteRight className="text-3xl md:text-4xl text-gray-300 mt-4" />
+        </motion.div>
+      </div>
+      <div className="flex gap-6 mt-8 relative z-10">
+        <button
+          onClick={prevTestimonial}
+          className="bg-gray-700 p-3 rounded-full hover:bg-gray-600 transition-all"
+        >
+          <MdArrowBack className="text-white text-2xl" />
+        </button>
+        <button
+          onClick={nextTestimonial}
+          className="bg-gray-700 p-3 rounded-full hover:bg-gray-600 transition-all"
+        >
+          <MdArrowForward className="text-white text-2xl" />
+        </button>
+      </div>
+    </div>
+
+    <div class="relative overflow-hidden bg-orange-500 py-4">
+ 
+  <div class="absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-orange-500 to-transparent z-10"></div>
+  
+ 
+  <div class="marquee flex space-x-16">
+    <span class="marquee-text">
+      Personal Coach • Online Store • Kids Sports • Martial Arts • Gym Website • Personal Training • Sports Equipment
+    </span>
+    <span class="marquee-text">
+      Personal Coach • Online Store • Kids Sports • Martial Arts • Gym Website • Personal Training • Sports Equipment
+    </span>
+  </div>
+
+  <div class="absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-orange-500 to-transparent z-10"></div>
+</div>
+
+
 </>
   );
 }

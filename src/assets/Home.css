@@ -7,3 +7,31 @@
     width: 100vw; /* Ensure karega ki width kabhi bhi extra na ho */
   }
   
+  @keyframes marquee-scroll {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  .marquee {
+    display: flex;
+    white-space: nowrap;
+    animation: marquee-scroll 50s linear infinite;
+  }
+
+  .marquee:hover {
+    animation-play-state: paused; /* Pause effect on hover */
+  }
+
+  .marquee-text {
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: white;
+   
+
+  }
