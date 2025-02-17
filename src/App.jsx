@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 4000);
+    }, 3000);
   }, []); // Empty dependency array to prevent infinite re-renders
 
   if (isLoading) {
