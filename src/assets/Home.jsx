@@ -5,6 +5,7 @@ import video2 from "../assets/T2.mp4";
 import video3 from "../assets/T3.mp4";
 import { MdArrowForward, MdArrowBack } from "react-icons/md";
 import { FaQuoteRight } from "react-icons/fa";
+import { XMarkIcon, PlayIcon } from "@heroicons/react/24/solid";
 import './Home.css'
 
 
@@ -49,11 +50,22 @@ const services = [
   },
 ];
 
-const trainers = [
-  { name: "Sam Cole", role: "Personal Trainer", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8AV2cwH8IEiYbLVr2BB2qWjIwff8FRvTCYQ&s" },
-  { name: "M. Harris", role: "Personal Trainer", img: "trainer2.jpg" },
-  { name: "John Haley", role: "Personal Trainer", img: "trainer3.jpg" },
-  { name: "Tom Blake", role: "Personal Trainer", img: "trainer4.jpg" },
+const blogs = [
+  {
+    image: "https://images.pexels.com/photos/868483/pexels-photo-868483.jpeg?auto=compress&cs=tinysrgb&w=600",
+    date: "April 19, 2025",
+    title: "Fitness helps you think and feel better",
+  },
+  {
+    image: "https://images.pexels.com/photos/2662878/pexels-photo-2662878.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    date: "April 21, 2025",
+    title: "How to Prepare Meals Fast and Easy",
+  },
+  {
+    image: "https://images.pexels.com/photos/6455834/pexels-photo-6455834.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+    date: "April 25, 2025",
+    title: "Today is the Best Day to Start Training",
+  },
 ];
 
 const testimonials = [
@@ -62,7 +74,7 @@ const testimonials = [
     role: "Our Trainer",
     image: "https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=600",
     review:
-      "I've been using Fitmaker for the past three months, and I'm genuinely impressed. The website is easy to navigate, and everything is laid out clearly. I purchased the premium plan, and the personalized coaching has been a game-changer for me. My coach is incredibly supportive and always available to answer my questions. The weekly video sessions ",
+      "I've been using Fitmaker for the past three months, and I'm genuinely impressed. The website is easy to navigate, and everything is laid out clearly. I purchased the premium plan, ",
   },
   {
     name: "Josh Oliver",
@@ -112,6 +124,7 @@ export default function Home() {
     );
   };
 
+  const [isOpen, setIsOpen] = useState(false);
 
 
 
@@ -146,7 +159,7 @@ export default function Home() {
 
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+      <div className="absolute inset-0 "></div>
       {/* Overlay Container */}
       <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center text-white px-4">
         {/* Main Heading */}
@@ -338,66 +351,84 @@ export default function Home() {
       </div>
     </section>
 
-    
-
-
-    <div className="relative h-96 overflow-hidden flex items-center">
+    <div className="relative h-[510px] flex items-center justify-center overflow-hidden bg-black">
   {/* Background Image */}
   <div
     className="absolute inset-0 bg-cover bg-center"
     style={{
       backgroundImage:
-        "url('https://images.pexels.com/photos/3309775/pexels-photo-3309775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
+        "url('https://images3.alphacoders.com/134/1342304.jpeg')",
       backgroundAttachment: "fixed",
-      backgroundSize: "cover",
-      backgroundPosition: "center center",
     }}
   ></div>
 
-  {/* Content Section */}
-  <motion.div
-    initial={{ x: -100, opacity: 0 }}
-    whileInView={{ x: 0, opacity: 1 }}
-    transition={{ duration: 1 }}
-    className="relative flex flex-col items-start justify-center text-white text-left px-10 bg-black/50 w-1/2 h-full"
-  >
-  <div className="text-center sm:text-left max-w-sm mx-auto sm:max-w-md">
-  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold uppercase">
-    Gyms Don’t Change Lives. People Do.
-  </h2>
-  <p className="text-sm sm:text-base mt-2 sm:mt-3 max-w-sm">
-    Push beyond limits and unlock your full potential.
-  </p>
-  <button className="mt-2 sm:mt-3 px-3 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm bg-white text-black font-semibold uppercase rounded-lg hover:bg-gray-300 transition">
-    Read More
-  </button>
-</div>
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
 
+  {/* Content Wrapper */}
+  <div className="relative z-10 flex flex-col sm:flex-row items-center w-full max-w-7xl px-4 sm:px-8 md:px-12 space-y-8 sm:space-y-0">
 
-  </motion.div>
-
-  {/* Video Section */}
-  <motion.div
-    initial={{ x: 100, opacity: 0 }}
-    whileInView={{ x: 0, opacity: 1 }}
-    transition={{ duration: 1 }}
-    className="relative w-1/2 h-full"
-  >
-    <video
-      className="w-full h-full object-cover"
-      autoPlay
-      loop
-      muted
-      playsInline
+    {/* Left Content Section */}
+    <motion.div
+      initial={{ x: -100, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ duration: 1 }}
+      className="w-full sm:w-1/2 flex flex-col justify-center text-white text-center sm:text-left space-y-6"
     >
-      <source
-        src="https://videos.pexels.com/video-files/18941351/18941351-hd_1080_1920_50fps.mp4"
-        type="video/mp4"
-      />
-    </video>
-  </motion.div>
+      <h2 className="text-[clamp(2rem,5vw,4rem)] font-extrabold uppercase tracking-wide leading-tight text-white drop-shadow-lg">
+        Redefine Your Limits
+      </h2>
+      <p className="text-[clamp(1rem,2.5vw,1.25rem)] text-gray-300 max-w-lg leading-relaxed">
+        Strength isn’t just power, it’s growth. Take the leap, break barriers, and become unstoppable.
+      </p>
+      <div className="flex justify-center sm:justify-start">
+        <button className="mt-4 w-[clamp(8rem,12vw,10rem)] py-[clamp(0.75rem,1.5vw,1rem)] text-[clamp(0.875rem,1.2vw,1.25rem)] font-semibold uppercase bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-xl shadow-xl hover:scale-110 transition-transform duration-300">
+          Get Fit
+        </button>
+      </div>
+    </motion.div>
+
+    {/* Right Content Section - Play Button */}
+    <div className="w-full sm:w-1/2 flex justify-center items-center mt-8 sm:mt-0">
+      <div
+        className="relative cursor-pointer p-4 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 animate-[wiggle_1.5s_infinite] 
+                   before:absolute before:w-full before:h-full before:rounded-full before:border-4 
+                   before:border-orange-500 before:opacity-0 before:animate-[pulseWave_2s_infinite]"
+        onClick={() => setIsOpen(true)}
+      >
+        <PlayIcon className="w-16 h-16 text-orange-500 drop-shadow-lg" />
+      </div>
+    </div>
+
+  </div>
+
+  {/* Video Modal */}
+  {isOpen && (
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-90 backdrop-blur-lg z-50 p-4">
+      <div className="relative w-full max-w-3xl bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
+        {/* Close Button */}
+        <button
+          className="absolute top-4 right-4 text-white bg-red-500 w-10 h-10 rounded-full flex items-center justify-center hover:bg-red-600 transition-all"
+          onClick={() => setIsOpen(false)}
+        >
+          <XMarkIcon className="w-6 h-6" />
+        </button>
+        {/* Embedded Video */}
+        <iframe
+          className="w-full h-[clamp(250px,50vw,450px)] rounded-xl"
+          src="https://www.youtube.com/embed/qh3NGpYRG3I?autoplay=1"
+          title="Hero Video"
+          allow="autoplay; encrypted-media"
+          allowFullScreen
+        ></iframe>
+      </div>
+    </div>
+  )}
 </div>
 
+    
+
+   
 <section className="bg-white text-black p-8 md:p-16 lg:flex lg:items-center">
       {/* Left Side - Image */}
       <div className="lg:w-1/2 mb-8 lg:mb-0 flex justify-center">
@@ -449,31 +480,24 @@ export default function Home() {
       </div>
     </section>
 
-  
 
-
-
-    <section className="bg-white py-16 px-8 text-black">
+    <section className="py-12 bg-white">
       <div className="text-center mb-8">
-        <h2 className="text-4xl font-bold">Meet Our <span className="text-orange-500">Trainers</span></h2>
-        <p className="mt-2 text-gray-300">At This Part You Can See Some Of Our Trainers And Their Work.</p>
+        <h2 className="text-3xl font-bold text-gray-900">Latest Blog Posts</h2>
+        <p className="text-red-500 font-medium mt-1"> <span className="inline-block w-12 h-[2px] bg-red-500"></span> our blog <span className="inline-block w-12 h-[2px] bg-red-500"></span></p>
       </div>
-      <div className="grid md:grid-cols-4 gap-6">
-        {trainers.map((trainer, index) => (
-          <div key={index} className="bg-gray-900 rounded-lg shadow-lg overflow-hidden">
-            <img src={trainer.img} alt={trainer.name} className="w-full h-60 object-cover" />
-            <div className="p-4 text-center">
-              <h3 className="text-xl font-semibold">{trainer.name}</h3>
-              <p className="text-gray-400">{trainer.role}</p>
-              <a href="#" className="text-red-500 mt-2 inline-block">Learn More →</a>
+
+      <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-6 px-4">
+        {blogs.map((blog, index) => (
+          <div key={index} className="relative group overflow-hidden rounded-lg shadow-lg">
+            <img src={blog.image} alt={blog.title} className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" />
+            <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-50 transition-all"></div>
+            <div className="absolute bottom-4 left-4 text-white">
+              <span className="bg-orange-600 text-xs px-3 py-1 rounded-full">{blog.date}</span>
+              <h3 className="text-lg font-semibold mt-2">{blog.title}</h3>
             </div>
           </div>
         ))}
-      </div>
-      <div className="text-center mt-8">
-        <button className="px-6 py-2 border border-red-500 text-red-500 rounded-full hover:bg-red-500 hover:text-white transition">
-          View All
-        </button>
       </div>
     </section>
 
@@ -549,6 +573,8 @@ export default function Home() {
 
   <div class="absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-orange-500 to-transparent z-10"></div>
 </div>
+
+
 
 
 </>
