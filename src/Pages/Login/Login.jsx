@@ -20,7 +20,7 @@ function Login() {
 
     const fetchUser = () => {
         axios
-            .get("http://localhost:5000/register")
+            .get("https://fitmakerbackend.vercel.app/register")
             .then((res) => {
                 console.log(res.data);
             })
@@ -39,7 +39,7 @@ function Login() {
         } else {
             try {
                 const response = await axios
-                    .post("http://localhost:5000/login", { email, password })
+                    .post("https://fitmakerbackend.vercel.app/login", { email, password })
                 const token = response.data.token
                 setEmail("")
                 setPassword("")
