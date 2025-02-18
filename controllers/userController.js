@@ -37,14 +37,9 @@ const userSignup = async (req, res) => {
             text: `<a href="#">Link</a>`,
         }
 
-        transporter.sendMail(mailOption, (error, info) => {
-            if (error) {
-                console.log(error);
-            } else {
-                console.log(`Email send: ${info.response}`);
-                res.status(201).json({ status: "SUCCESS", message: "Please Verify the Email" })
-            }
-        })
+        const info = await transporter.sendMail(mailOption);
+
+        return res.status(201).json({ status: "SUCCESS", message: "Please verify your email" })
 
     } catch (error) {
         res.status(500).json({ status: "FAILED", message: "Error signing up" })
