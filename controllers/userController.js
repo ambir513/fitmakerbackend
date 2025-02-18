@@ -1,6 +1,7 @@
 import User from "../models/userModel.js"
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
+import nodemailer from "nodemailer"
 
 //@des Create a User
 //@route POST /register
@@ -21,7 +22,30 @@ const userSignup = async (req, res) => {
             email,
             password: hashedPassword,
         })
-        res.status(201).json({ status: "SUCCESS", message: "User created successfully" })
+        const transporter = nodemailer.createTransport({
+            service: "gmail",
+            auth: {
+                user: process.env.AUTH_EMAIL,
+                pass: process.env.AUTH_PASS
+            }
+        })
+
+        const mailOption = {
+            from: process.env.AUTH_EMAIL,
+            to: email,
+            subject: "verify you email",
+            text: `<a href="#">Link</a>`,
+        }
+
+        transporter.sendMail(mailOption, (error, info) => {
+            if (error) {
+                console.log(error);
+            } else {
+                console.log(`Email send: ${info.response}`);
+                res.status(201).json({ status: "SUCCESS", message: "Please Verify the Email" })
+            }
+        })
+
     } catch (error) {
         res.status(500).json({ status: "FAILED", message: "Error signing up" })
     }
@@ -58,15 +82,31 @@ const userLogin = async (req, res) => {
 }
 
 //@des Current User
-//@route GET /register
-//@access public with hashedpassword
-const userAll = async (req, res) => {
+//@route POST / Verifing... token 
+//@access Only login user
+const userVerify = async (req, res) => {
+    const { token } = req.body
     try {
-        const user = await User.find()
-        res.status(201).json({ status: "SUCCESS", user })
+        const decoded = jwt.verify(token, process.env.SECRET_KEY);
+        res.json(decoded)
     } catch (error) {
-        res.status(500).json({ status: "FAILED", message: "Error will geting user " })
+        res.json({ status: "FAILED", message: "Invalid token" })
     }
 }
 
-export { userSignup, userLogin, userAll }
+//@des get verify token user
+//@routes POST / User Data
+//@access Only verify token user data
+const userData = async (req, res) => {
+    try {
+        const { userId } = req.body
+        const user = await User.findOne({ userId })
+        if (user) {
+            return res.json(user)
+        }
+    } catch (error) {
+        res.josn({ status: "FAILED", message: "Error in userid" })
+    }
+}
+
+export { userSignup, userLogin, userVerify, userData }
