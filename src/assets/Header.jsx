@@ -40,7 +40,9 @@ export default function Navbar() {
       <ul className={`hidden md:flex gap-8 text-lg font-medium ${scrolling ? "text-black" : "text-white"}`}>
         <li><Link to="/" className="hover:text-red-500 transition duration-300">Home</Link></li>
         <li><Link to="/about" className="hover:text-red-500 transition duration-300">About Us</Link></li>
+        <li><Link to="/Shop" className="hover:text-red-500 transition duration-300">Shop</Link></li>
         <li><Link to="/contact" className="hover:text-red-500 transition duration-300">Contact</Link></li>
+       
       </ul>
       
       {/* Desktop Buttons */}
@@ -76,6 +78,7 @@ export default function Navbar() {
         <h2 className="text-xl font-bold text-red-600">Menu</h2>
         <Link to="/" className="text-lg font-medium text-gray-800 hover:text-red-500 transition duration-300" onClick={() => setMenuOpen(false)}>Home</Link>
         <Link to="/about" className="text-lg font-medium text-gray-800 hover:text-red-500 transition duration-300" onClick={() => setMenuOpen(false)}>About Us</Link>
+        <Link to="/Shop" className="text-lg font-medium text-gray-800 hover:text-red-500 transition duration-300" onClick={() => setMenuOpen(false)}>Shop</Link>
         <Link to="/contact" className="text-lg font-medium text-gray-800 hover:text-red-500 transition duration-300" onClick={() => setMenuOpen(false)}>Contact</Link>
         <button className="w-full border-2 border-orange-500 text-orange-500 px-5 py-2 rounded-full hover:bg-orange-500 hover:text-white transition duration-300" onClick={() => setMenuOpen(false)}>
           Login

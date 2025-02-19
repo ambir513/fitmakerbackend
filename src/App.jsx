@@ -6,6 +6,7 @@ import Footer from "./assets/Footer";
 import Home from "./assets/Home";
 import About from "./assets/About";
 import Contact from "./assets/Contact";
+import Shop from "./assets/Shop";
 
 function App() {
   const User = !!localStorage.getItem("token");
@@ -28,6 +29,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/Shop" element={<Shop/>} />
       </Routes>
       <Footer />
     </Router>
