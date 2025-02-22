@@ -1,4 +1,5 @@
 import React from "react";
+import './Home.css';
 
 
 export default function Contact() {
@@ -109,6 +110,23 @@ export default function Contact() {
       </div>
     </div>
   </div>
+
+  <div class="relative overflow-hidden bg-orange-500 py-4">
+ 
+ <div class="absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-orange-500 to-transparent z-10"></div>
+ 
+
+ <div class="marquee flex space-x-16">
+   <span class="marquee-text">
+     Personal Coach • Online Store • Kids Sports • Martial Arts • Gym Website • Personal Training • Sports Equipment
+   </span>
+   <span class="marquee-text">
+     Personal Coach • Online Store • Kids Sports • Martial Arts • Gym Website • Personal Training • Sports Equipment
+   </span>
+ </div>
+
+ <div class="absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-orange-500 to-transparent z-10"></div>
+</div>
 
 
     </div>
