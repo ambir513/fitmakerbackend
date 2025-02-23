@@ -7,6 +7,9 @@ import Home from "./assets/Home";
 import About from "./assets/About";
 import Contact from "./assets/Contact";
 import Shop from "./assets/Shop";
+import Card from "./assets/Card";
+import Join from "./assets/Join";
+
 
 function App() {
   const User = !!localStorage.getItem("token");
@@ -30,6 +33,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/Shop" element={<Shop/>} />
+        <Route path="Card/:profileId" element={<Card/>} />
+        <Route path="Join/:profileId" element={<Join/>} />
       </Routes>
       <Footer />
     </Router>
