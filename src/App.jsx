@@ -9,6 +9,8 @@ import Contact from "./assets/Contact";
 import Shop from "./assets/Shop";
 import Card from "./assets/Card";
 import Join from "./assets/Join";
+import Cart from "./assets/Cart";
+import Purchase from "./assets/Purchase";
 
 
 function App() {
@@ -35,6 +37,8 @@ function App() {
         <Route path="/Shop" element={<Shop/>} />
         <Route path="Card/:profileId" element={<Card/>} />
         <Route path="Join/:profileId" element={<Join/>} />
+        <Route path="Cart/:profileId" element={<Cart/>} />
+        <Route path="Purchase/:profileId" element={<Purchase/>} />
       </Routes>
       <Footer />
     </Router>

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom'; // Added Link
+import { useParams, Link } from 'react-router-dom';
 
 const Card = () => {
   const { profileId } = useParams();
   const [quantity, setQuantity] = useState(1);
+  const [activeTab, setActiveTab] = useState('membership'); // State for active tab
 
   const products = [
     {
@@ -24,6 +25,27 @@ const Card = () => {
       fabric: "Includes complimentary gym towel and water bottle made from eco-friendly materials.",
       washCare: "Wash gym towel with cold water, air dry recommended.",
       note: "Membership is valid for 30 days. Renew anytime for continued access. Check class schedules online.",
+      reviewsContent: [
+        {
+          reviewer: "John Doe",
+          rating: 5,
+          comment: "Amazing gym! The equipment is top-notch, and the classes are super motivating. Totally worth the membership!",
+          date: "2 months ago",
+        },
+        {
+          reviewer: "Jane Smith",
+          rating: 4,
+          comment: "Great experience overall, but sometimes the gym gets crowded during peak hours. Still, the trainers are fantastic!",
+          date: "1 month ago",
+        },
+      ],
+      termsConditions: {
+        eligibility: "Open to individuals 18+ with no severe medical conditions.",
+        cancellation: "Cancel anytime with a 7-day notice before renewal. No refunds for partial months.",
+        usage: "Membership is non-transferable and valid only at registered PowerFit locations.",
+        payment: "Auto-renewal unless cancelled. Payments processed monthly via selected method.",
+        additional: "Free gear (towel, bottle) provided on first visit; replacements at additional cost.",
+      },
     },
   ];
 
@@ -117,7 +139,7 @@ const Card = () => {
                     </div>
                   </div>
                   <Link
-                    to={`/Join/${profileId}`} // Redirect to Join page with profileId
+                    to={`/Join/${profileId}`}
                     className="px-4 py-3 w-full border border-gray-800 bg-gray-800 hover:bg-transparent hover:text-gray-800 text-white text-sm font-semibold transition-all duration-300 no-underline text-center"
                   >
                     Join Now
@@ -181,18 +203,28 @@ const Card = () => {
 
         <div className="mt-12">
           <div className="flex border-b border-gray-200">
-            <button className="px-4 py-3 text-[13px] sm:text-sm font-semibold border-b border-gray-800 text-gray-800">
+            <button
+              onClick={() => setActiveTab('membership')}
+              className={`px-4 py-3 text-[13px] sm:text-sm font-semibold ${activeTab === 'membership' ? 'border-b border-gray-800 text-gray-800' : 'border-b border-transparent text-gray-500'}`}
+            >
               MEMBERSHIP DETAILS
             </button>
-            <button className="px-4 py-3 text-[13px] sm:text-sm font-medium border-b border-transparent text-gray-500">
+            <button
+              onClick={() => setActiveTab('reviews')}
+              className={`px-4 py-3 text-[13px] sm:text-sm font-medium ${activeTab === 'reviews' ? 'border-b border-gray-800 text-gray-800' : 'border-b border-transparent text-gray-500'}`}
+            >
               REVIEWS
             </button>
-            <button className="px-4 py-3 text-[13px] sm:text-sm font-medium border-b border-transparent text-gray-500">
+            <button
+              onClick={() => setActiveTab('terms')}
+              className={`px-4 py-3 text-[13px] sm:text-sm font-medium ${activeTab === 'terms' ? 'border-b border-gray-800 text-gray-800' : 'border-b border-transparent text-gray-500'}`}
+            >
               TERMS & CONDITIONS
             </button>
           </div>
 
-          <div className="mt-8 space-y-6">
+          {/* Membership Details Tab */}
+          <div className={activeTab === 'membership' ? 'mt-8 space-y-6' : 'hidden'}>
             <p className="leading-relaxed text-sm text-gray-500">{product.description}</p>
             <ul className="space-y-2 list-disc pl-5 text-sm text-gray-500">
               {product.features.map((feature, index) => (
@@ -219,6 +251,64 @@ const Card = () => {
             <div>
               <h6 className="text-base font-bold text-gray-800 mb-2">Note</h6>
               <p className="leading-relaxed text-sm text-gray-500">{product.note}</p>
+            </div>
+          </div>
+
+          {/* Reviews Tab */}
+          <div className={activeTab === 'reviews' ? 'mt-8 space-y-6' : 'hidden'}>
+            <p className="leading-relaxed text-sm text-gray-500">
+              See what our members are saying about the {product.name}!
+            </p>
+            {product.reviewsContent.map((review, index) => (
+              <div key={index} className="flex items-start">
+                <div className="ml-3">
+                  <h4 className="text-sm font-bold text-gray-800">{review.reviewer}</h4>
+                  <div className="flex space-x-1 mt-1">
+                    {[...Array(5)].map((_, i) => (
+                      <svg
+                        key={i}
+                        className={`w-[14px] h-[14px] ${i < review.rating ? 'fill-purple-600' : 'fill-[#CED5D8]'}`}
+                        viewBox="0 0 14 13"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+                      </svg>
+                    ))}
+                    <p className="text-xs text-gray-500 !ml-2">{review.date}</p>
+                  </div>
+                  <p className="text-sm text-gray-500 mt-2">{review.comment}</p>
+                </div>
+              </div>
+            ))}
+            <a href="javascript:void(0)" className="block text-purple-600 hover:underline text-sm font-semibold">
+              Read all {product.reviews} reviews
+            </a>
+          </div>
+
+          {/* Terms & Conditions Tab */}
+          <div className={activeTab === 'terms' ? 'mt-8 space-y-6' : 'hidden'}>
+            <p className="leading-relaxed text-sm text-gray-500">
+              Understand the terms and conditions of your {product.name} to make the most of your gym experience.
+            </p>
+            <div>
+              <h6 className="text-base font-bold text-gray-800 mb-2">Eligibility</h6>
+              <p className="text-sm text-gray-500">{product.termsConditions.eligibility}</p>
+            </div>
+            <div>
+              <h6 className="text-base font-bold text-gray-800 mb-2">Cancellation Policy</h6>
+              <p className="text-sm text-gray-500">{product.termsConditions.cancellation}</p>
+            </div>
+            <div>
+              <h6 className="text-base font-bold text-gray-800 mb-2">Usage Rules</h6>
+              <p className="text-sm text-gray-500">{product.termsConditions.usage}</p>
+            </div>
+            <div>
+              <h6 className="text-base font-bold text-gray-800 mb-2">Payment Terms</h6>
+              <p className="text-sm text-gray-500">{product.termsConditions.payment}</p>
+            </div>
+            <div>
+              <h6 className="text-base font-bold text-gray-800 mb-2">Additional Notes</h6>
+              <p className="text-sm text-gray-500">{product.termsConditions.additional}</p>
             </div>
           </div>
         </div>

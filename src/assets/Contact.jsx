@@ -4,7 +4,10 @@ import './Home.css';
 
 
 
+
 export default function Contact() {
+
+  
    return (
     <div>
       {/* Hero Section */}
@@ -21,114 +24,303 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* Why Choose Us Section */}
-      <section className="bg-white text-black py-12 px-6 md:px-16 flex flex-col md:flex-row items-center gap-10">
-        {/* Left Side - Image */}
-        <div className="md:w-1/2 w-full flex justify-center">
-          <div className="border-4 border-orange-400 p-2 max-w-xs sm:max-w-md md:max-w-full">
-            <img
-              src="https://images.pexels.com/photos/17840/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-              alt="Why Choose Us"
-              className="w-full h-auto object-cover"
-            />
-          </div>
-        </div>
 
-        {/* Right Side - Content */}
-        <div className="md:w-1/2 w-full text-center md:text-left px-4 sm:px-8">
-          <h3 className="text-xs sm:text-sm text-orange-400 uppercase font-bold">Know About Us</h3>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-2">
-            Why Choose Us? <span className="text-orange-400">Because We're The Best.</span>
-          </h2>
-          <p className="text-gray-600 mt-4 text-sm sm:text-base">
-            Our state-of-the-art services provide you with the best experience. Whether you're here
-            to find the right match or explore options, we've got you covered.
-          </p>
-          <ul className="mt-4 space-y-2 text-gray-700 text-sm sm:text-base">
-            <li className="flex items-center gap-2">✅ Train with the best experts in the industry.</li>
-            <li className="flex items-center gap-2">
-              ✅ Our advanced algorithms help you find the perfect match.
-            </li>
-          </ul>
-          <button className="mt-6 px-5 py-2 sm:px-6 sm:py-3 bg-black text-white font-bold rounded-md hover:bg-gray-800 transition-all">
-            Read More &rarr;
-          </button>
-        </div>
-      </section>
-
-  {/* Contact Section */}
-  <div className="landing_page">
-    <div className="flex flex-wrap justify-center lg:justify-start min-h-[75px] w-full bg-black px-6 md:px-12 relative">
-      {/* Background Image */}
-      <img
-        className="absolute inset-0 w-full h-full object-cover opacity-40 pointer-events-none"
-        src="https://images.pexels.com/photos/1552249/pexels-photo-1552249.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-        alt="Gym Background"
-      />
-      <div className="max-w-[1320px] mx-auto flex flex-wrap py-16 relative z-10 w-full">
-        
-        {/* Left Section */}
-        <div className="w-full lg:w-1/2 flex justify-center lg:justify-start items-center text-white px-4">
-          <div className="text-center lg:text-left">
-            <p className="text-3xl md:text-4xl font-bold leading-[45px] md:leading-[55px] mb-4">
-              Unleash Your Strength - Get in Touch Today!
-            </p>
-            <p className="text-base md:text-lg text-gray-400 max-w-[420px] mb-8">
-              Ready to transform your fitness journey? Join our gym and take the first step towards a healthier, stronger you!
-            </p>
-            {/* Social Media Icons */}
-            <div className="flex justify-center lg:justify-start space-x-4">
-              <a className="share-icon" href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                <img className="w-8 h-8 filter brightness-0 invert sepia saturate-200 hue-rotate-10" src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-twitter.png" alt="Twitter" />
-              </a>
-              <a className="share-icon" href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                <img className="w-8 h-8 filter brightness-0 invert sepia saturate-200 hue-rotate-10" src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-instagram.png" alt="Instagram" />
-              </a>
-              <a className="share-icon" href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                <img className="w-8 h-8 filter brightness-0 invert sepia saturate-200 hue-rotate-10" src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-facebook.png" alt="Facebook" />
-              </a>
-             
-            </div>
-          </div>
-        </div>
-
-        {/* Right Section (Form) */}
-        <div className="w-full lg:w-1/2 flex justify-center mt-8 lg:mt-0 px-4">
-          <form className="bg-gray-900 text-white p-6 md:p-8 max-w-[500px] w-full rounded-md shadow-lg">
-            <p className="text-xl md:text-2xl font-bold mb-4">Start Your Fitness Journey</p>
-            <p className="text-gray-400 mb-6 md:mb-8">Sign up now and start your fitness journey with us!</p>
-            <div className="space-y-4">
-              <input className="w-full h-12 bg-gray-800 text-white rounded-md px-4 placeholder-gray-400 border border-gray-700 focus:ring-2 focus:ring-red-500 focus:outline-none" type="text" placeholder="First Name" name="FirstName" />
-              <input className="w-full h-12 bg-gray-800 text-white rounded-md px-4 placeholder-gray-400 border border-gray-700 focus:ring-2 focus:ring-red-500 focus:outline-none" type="text" placeholder="Last Name" name="LastName" />
-              <input className="w-full h-12 bg-gray-800 text-white rounded-md px-4 placeholder-gray-400 border border-gray-700 focus:ring-2 focus:ring-red-500 focus:outline-none" type="email" placeholder="Email" name="Email" />
-              <input className="w-full h-12 bg-gray-800 text-white rounded-md px-4 placeholder-gray-400 border border-gray-700 focus:ring-2 focus:ring-red-500 focus:outline-none" type="text" placeholder="Phone Number" name="PhoneNumber" />
-              <textarea className="w-full h-36 bg-gray-800 text-white rounded-md px-4 py-2 placeholder-gray-400 border border-gray-700 focus:ring-2 focus:ring-red-500 focus:outline-none" placeholder="Your Fitness Goals" name="Message"></textarea>
-              <button className="w-full h-14 bg-red-700 hover:bg-red-600 text-white rounded-md text-lg font-semibold transition-all" type="submit">
-                Get Started
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
+     
+<div className="bg-neutral-900">
+  
+  <div className="max-w-5xl px-4 xl:px-0 py-10 lg:pt-20 lg:pb-20 mx-auto">
+   
+    <div className="max-w-3xl mb-10 lg:mb-14">
+      <h2 className="text-white font-semibold text-2xl md:text-4xl md:leading-tight">Our approach</h2>
+      <p className="mt-1 text-neutral-400">This profound insight guides our comprehensive strategy — from meticulous research and strategic planning to the seamless execution of brand development and website or product deployment.</p>
     </div>
+   
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 lg:items-center">
+      <div className="aspect-w-16 aspect-h-9 lg:aspect-none">
+        <img className="w-full object-cover rounded-xl" src="https://images.unsplash.com/photo-1587614203976-365c74645e83?q=80&w=480&h=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Features Image"></img>
+      </div>
+      
+      <div>
+     
+        <div className="mb-4">
+          <h3 className="text-[#ff0] text-xs font-medium uppercase">
+            Steps
+          </h3>
+        </div>
+        
+
+        <div className="flex gap-x-5 ms-1">
+       
+          <div className="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800">
+            <div className="relative z-10 size-8 flex justify-center items-center">
+              <span className="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-[#ff0] font-semibold text-xs uppercase rounded-full">
+                1
+              </span>
+            </div>
+          </div>
+          
+
+       
+          <div className="grow pt-0.5 pb-8 sm:pb-12">
+            <p className="text-sm lg:text-base text-neutral-400">
+              <span className="text-white">Market Research and Analysis:</span>
+              Identify your target audience and understand their needs, preferences, and behaviors.
+            </p>
+          </div>
+        
+        </div>
+      
+
+        
+        <div className="flex gap-x-5 ms-1">
+          
+          <div className="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800">
+            <div className="relative z-10 size-8 flex justify-center items-center">
+              <span className="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-[#ff0] font-semibold text-xs uppercase rounded-full">
+                2
+              </span>
+            </div>
+          </div>
+         
+
+         
+          <div className="grow pt-0.5 pb-8 sm:pb-12">
+            <p className="text-sm lg:text-base text-neutral-400">
+              <span className="text-white">Product Development and Testing:</span>
+              Develop digital products or services that address the needs and preferences of your target audience.
+            </p>
+          </div>
+        
+        </div>
+      
+
+        
+        <div className="flex gap-x-5 ms-1">
+         
+          <div className="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800">
+            <div className="relative z-10 size-8 flex justify-center items-center">
+              <span className="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-[#ff0] font-semibold text-xs uppercase rounded-full">
+                3
+              </span>
+            </div>
+          </div>
+        
+
+       
+          <div className="grow pt-0.5 pb-8 sm:pb-12">
+            <p className="text-sm md:text-base text-neutral-400">
+              <span className="text-white">Marketing and Promotion:</span>
+              Develop a comprehensive marketing strategy to promote your digital products or services.
+            </p>
+          </div>
+          
+        </div>
+        
+
+       
+        <div className="flex gap-x-5 ms-1">
+      
+          <div className="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800">
+            <div className="relative z-10 size-8 flex justify-center items-center">
+              <span className="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-[#ff0] font-semibold text-xs uppercase rounded-full">
+                4
+              </span>
+            </div>
+          </div>
+          
+
+         
+          <div className="grow pt-0.5 pb-8 sm:pb-12">
+            <p className="text-sm md:text-base text-neutral-400">
+              <span className="text-white">Launch and Optimization:</span>
+              Launch your digital products or services to the market, closely monitoring their performance and user feedback.
+            </p>
+          </div>
+        
+        </div>
+       
+
+        <a className="group inline-flex items-center gap-x-2 py-2 px-3 bg-[#ff0] font-medium text-sm text-neutral-800 rounded-full focus:outline-none" href="#">
+          <svg className="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path><path className="opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-hover:delay-100 transition" d="M14.05 2a9 9 0 0 1 8 7.94"></path><path className="opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition" d="M14.05 6A5 5 0 0 1 18 10"></path></svg>
+          Schedule a call
+        </a>
+      </div>
+     
+    </div>
+  
   </div>
-
-  <div class="relative overflow-hidden bg-orange-500 py-4">
- 
- <div class="absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-orange-500 to-transparent z-10"></div>
- 
-
- <div class="marquee flex space-x-16">
-   <span class="marquee-text">
-     Personal Coach • Online Store • Kids Sports • Martial Arts • Gym Website • Personal Training • Sports Equipment
-   </span>
-   <span class="marquee-text">
-     Personal Coach • Online Store • Kids Sports • Martial Arts • Gym Website • Personal Training • Sports Equipment
-   </span>
- </div>
-
- <div class="absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-orange-500 to-transparent z-10"></div>
 </div>
+
+
+<div className="bg-neutral-900">
+  <div className="max-w-5xl px-4 xl:px-0 py-10 lg:py-20 mx-auto">
+   
+    <div className="max-w-3xl mb-10 lg:mb-14">
+      <h2 className="text-white font-semibold text-2xl md:text-4xl md:leading-tight">Contact us</h2>
+      <p className="mt-1 text-neutral-400">Whatever your goal - we will get you there.</p>
+    </div>
+    
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 lg:gap-x-16">
+      <div className="md:order-2 border-b border-neutral-800 pb-10 mb-10 md:border-b-0 md:pb-0 md:mb-0">
+        <form>
+          <div className="space-y-4">
+        
+            <div className="relative">
+              <input type="text" id="hs-tac-input-name" className="peer p-4 block w-full bg-neutral-800 border-transparent rounded-lg text-sm text-white placeholder:text-transparent focus:outline-none focus:ring-0 focus:border-transparent disabled:opacity-50 disabled:pointer-events-none
+              focus:pt-6
+              focus:pb-2
+              [&:not(:placeholder-shown)]:pt-6
+              [&:not(:placeholder-shown)]:pb-2
+              autofill:pt-6
+              autofill:pb-2" placeholder="Name"></input>
+              <label htmlFor="hs-tac-input-name" className="absolute top-0 start-0 p-4 h-full text-neutral-400 text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent peer-disabled:opacity-50 peer-disabled:pointer-events-none
+                peer-focus:text-xs
+                peer-focus:-translate-y-1.5
+                peer-focus:text-neutral-400
+                peer-[:not(:placeholder-shown)]:text-xs
+                peer-[:not(:placeholder-shown)]:-translate-y-1.5
+                peer-[:not(:placeholder-shown)]:text-neutral-400">Name</label>
+            </div>
+           
+            <div className="relative">
+              <input type="email" id="hs-tac-input-email" className="peer p-4 block w-full bg-neutral-800 border-transparent rounded-lg text-sm text-white placeholder:text-transparent focus:outline-none focus:ring-0 focus:border-transparent disabled:opacity-50 disabled:pointer-events-none
+              focus:pt-6
+              focus:pb-2
+              [&:not(:placeholder-shown)]:pt-6
+              [&:not(:placeholder-shown)]:pb-2
+              autofill:pt-6
+              autofill:pb-2" placeholder="Email"></input>
+              <label htmlFor="hs-tac-input-email" className="absolute top-0 start-0 p-4 h-full text-neutral-400 text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent peer-disabled:opacity-50 peer-disabled:pointer-events-none
+                peer-focus:text-xs
+                peer-focus:-translate-y-1.5
+                peer-focus:text-neutral-400
+                peer-[:not(:placeholder-shown)]:text-xs
+                peer-[:not(:placeholder-shown)]:-translate-y-1.5
+                peer-[:not(:placeholder-shown)]:text-neutral-400">Email</label>
+            </div>
+           
+            <div className="relative">
+              <input type="text" id="hs-tac-input-company" className="peer p-4 block w-full bg-neutral-800 border-transparent rounded-lg text-sm text-white placeholder:text-transparent focus:outline-none focus:ring-0 focus:border-transparent disabled:opacity-50 disabled:pointer-events-none
+              focus:pt-6
+              focus:pb-2
+              [&:not(:placeholder-shown)]:pt-6
+              [&:not(:placeholder-shown)]:pb-2
+              autofill:pt-6
+              autofill:pb-2" placeholder="Company"></input>
+              <label htmlFor="hs-tac-input-company" className="absolute top-0 start-0 p-4 h-full text-neutral-400 text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent peer-disabled:opacity-50 peer-disabled:pointer-events-none
+                peer-focus:text-xs
+                peer-focus:-translate-y-1.5
+                peer-focus:text-neutral-400
+                peer-[:not(:placeholder-shown)]:text-xs
+                peer-[:not(:placeholder-shown)]:-translate-y-1.5
+                peer-[:not(:placeholder-shown)]:text-neutral-400">Company</label>
+            </div>
+            
+            <div className="relative">
+              <input type="text" id="hs-tac-input-phone" className="peer p-4 block w-full bg-neutral-800 border-transparent rounded-lg text-sm text-white placeholder:text-transparent focus:outline-none focus:ring-0 focus:border-transparent disabled:opacity-50 disabled:pointer-events-none
+              focus:pt-6
+              focus:pb-2
+              [&:not(:placeholder-shown)]:pt-6
+              [&:not(:placeholder-shown)]:pb-2
+              autofill:pt-6
+              autofill:pb-2" placeholder="Phone"></input>
+              <label htmlFor="hs-tac-input-phone" className="absolute top-0 start-0 p-4 h-full text-neutral-400 text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent peer-disabled:opacity-50 peer-disabled:pointer-events-none
+                peer-focus:text-xs
+                peer-focus:-translate-y-1.5
+                peer-focus:text-neutral-400
+                peer-[:not(:placeholder-shown)]:text-xs
+                peer-[:not(:placeholder-shown)]:-translate-y-1.5
+                peer-[:not(:placeholder-shown)]:text-neutral-400">Phone</label>
+            </div>
+           
+            <div className="relative">
+              <textarea id="hs-tac-message" className="peer p-4 block w-full bg-neutral-800 border-transparent rounded-lg text-sm text-white placeholder:text-transparent focus:outline-none focus:ring-0 focus:border-transparent disabled:opacity-50 disabled:pointer-events-none
+              focus:pt-6
+              focus:pb-2
+              [&:not(:placeholder-shown)]:pt-6
+              [&:not(:placeholder-shown)]:pb-2
+              autofill:pt-6
+              autofill:pb-2" placeholder="This is a textarea placeholder" data-hs-textarea-auto-height></textarea>
+              <label htmlFor="hs-tac-message" className="absolute top-0 start-0 p-4 h-full text-neutral-400 text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent peer-disabled:opacity-50 peer-disabled:pointer-events-none
+                peer-focus:text-xs
+                peer-focus:-translate-y-1.5
+                peer-focus:text-neutral-400
+                peer-[:not(:placeholder-shown)]:text-xs
+                peer-[:not(:placeholder-shown)]:-translate-y-1.5
+                peer-[:not(:placeholder-shown)]:text-neutral-400">Tell us about your project</label>
+           
+          </div>
+          </div>
+
+          <div className="mt-2">
+            <p className="text-xs text-neutral-500">
+              All fields are required
+            </p>
+
+            <p className="mt-5">
+              <a className="group inline-flex items-center gap-x-2 py-2 px-3 bg-[#ff0] font-medium text-sm text-neutral-800 rounded-full focus:outline-none" href="#">
+                Submit
+                <svg className="shrink-0 size-4 transition group-hover:translate-x-0.5 group-hover:translate-x-0 group-focus:translate-x-0.5 group-focus:translate-x-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+            </p>
+          </div>
+        </form>
+      </div>
+  
+
+      <div className="space-y-14">
+       
+        <div className="flex gap-x-5">
+          <svg className="shrink-0 size-6 text-neutral-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div className="grow">
+            <h4 className="text-white font-semibold">Our address:</h4>
+
+            <address className="mt-1 text-neutral-400 text-sm not-italic">
+              300 Bath Street, Tay House<br></br>
+              Glasgow G2 4JR, United Kingdom
+            </address>
+          </div>
+        </div>
+        
+        <div className="flex gap-x-5">
+          <svg className="shrink-0 size-6 text-neutral-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21.2 8.4c.5.38.8.97.8 1.6v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V10a2 2 0 0 1 .8-1.6l8-6a2 2 0 0 1 2.4 0l8 6Z"/><path d="m22 10-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 10"/></svg>
+          <div className="grow">
+            <h4 className="text-white font-semibold">Email us:</h4>
+
+            <a className="mt-1 text-neutral-400 text-sm hover:text-neutral-200 focus:outline-none focus:text-neutral-200" href="#mailto:example@site.co" target="_blank">
+              hello@example.so
+            </a>
+          </div>
+        </div>
+        
+        <div className="flex gap-x-5">
+          <svg className="shrink-0 size-6 text-neutral-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+          <div className="grow">
+            <h4 className="text-white font-semibold">We're hiring</h4>
+            <p className="mt-1 text-neutral-400">We're thrilled to announce that we're expanding our team and looking for talented individuals like you to join us.</p>
+            <p className="mt-2">
+              <a className="group inline-flex items-center gap-x-2 font-medium text-sm text-[#ff0] decoration-2 hover:underline focus:outline-none focus:underline" href="#">
+                Job openings
+                <svg className="shrink-0 size-4 transition group-hover:translate-x-0.5 group-hover:translate-x-0 group-focus:translate-x-0.5 group-focus:translate-x-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+            </p>
+          </div>
+        </div>
+      
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+
+
+
+
+ 
+
+
+   
 
 
     </div>

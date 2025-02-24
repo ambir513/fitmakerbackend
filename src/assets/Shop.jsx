@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { Profiler } from 'react'
 import ff1 from "../assets/ff1.webp"; // Adjust path if needed
 import { Link } from 'react-router-dom';
 
 const products = [
-  { id: 1, name: "Lexicon Luxe - Tshirt", price: "$100.00", image: "https://readymadeui.com/images/fashion-img-1.webp" },
+  { id: 1, name: "Lexicon Luxe - Tshirt", price: "$100.00", image: "https://www.bullrockfitness.com/wp-content/uploads/2021/05/dont-touch-my-bar-1.jpg" },
   { id: 2, name: "Adjective Attire - Tshirt", price: "$120.00", image: "https://readymadeui.com/images/fashion-img-2.webp" },
   { id: 3, name: "ThreadCraft Vibes - Tshirt", price: "$140.00", image: "https://readymadeui.com/images/fashion-img-3.webp" },
   { id: 4, name: "Verbal Vogue Tees - Tshirt", price: "$120.00", image: "https://readymadeui.com/images/fashion-img-4.webp" },
@@ -173,12 +173,12 @@ function Shop() {
                       />
                     </svg>
                   </div>
-                  <button
-                    type="button"
-                    className="text-sm px-2 h-9 font-semibold w-full bg-blue-600 hover:bg-blue-700 text-white tracking-wide ml-auto outline-none border-none rounded"
+                  <Link
+                    to={`/Cart/${Profiler.id}`} // Redirect to Cart page with product ID
+                    className="text-sm px-2 h-9 font-semibold w-full bg-blue-600 hover:bg-blue-700 text-white tracking-wide ml-auto outline-none border-none rounded text-center no-underline"
                   >
                     Add to cart
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
