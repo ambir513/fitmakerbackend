@@ -3,14 +3,14 @@ import ff1 from "../assets/ff1.webp"; // Ensure this path is correct
 import { Link } from 'react-router-dom';
 
 const products = [
-  { id: 1, name: "Lexicon Luxe - Tshirt", price: "$100.00", image: "https://www.bullrockfitness.com/wp-content/uploads/2021/05/dont-touch-my-bar-1.jpg" },
-  { id: 2, name: "Adjective Attire - Tshirt", price: "$120.00", image: "https://www.bullrockfitness.com/wp-content/uploads/2021/12/Hex-Dumbbells-1.jpg" },
-  { id: 3, name: "ThreadCraft Vibes - Tshirt", price: "$140.00", image: "https://cdn.shopify.com/s/files/1/0571/9769/0976/files/Cardio-Machines.jpg" },
-  { id: 4, name: "Verbal Vogue Tees - Tshirt", price: "$120.00", image: "https://cdn.mos.cms.futurecdn.net/gxWm3asdF6AAe2rR9ziao8-1200-80.jpg" },
-  { id: 5, name: "Jargon Jungle - Tshirt", price: "$150.00", image: "https://cdn.shopify.com/s/files/1/0802/1508/1237/files/gym-equipment.jpg?v=1731347341" },
-  { id: 6, name: "Syllable Streetwear - Tshirt", price: "$140.00", image: "https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2023%2F10%2Fnike-strength-gym-equipment-announcement-release-info-001.jpg?q=75&w=800&cbr=1&fit=max" },
-  { id: 7, name: "Dynamic Fit - Tshirt", price: "$140.00", image: "https://radiustheme.com/demo/wordpress/themes/gymat/wp-content/uploads/2022/05/g_1.png" }, // Changed name for uniqueness
-  { id: 8, name: "Pulse Gear - Tshirt", price: "$140.00", image: "https://www.alqudra.sa/cdn/shop/articles/alqudra_blog1_3900x.progressive.jpg?v=1729949382" }, // Changed name for uniqueness
+  { id: 1, name: "AUSK Men  - Tshirt", price: "$100.00", image: "https://www.bullrockfitness.com/wp-content/uploads/2021/05/dont-touch-my-bar-1.jpg" },
+  { id: 2, name: "SLOVIC Dumbbell - Dumbbells", price: "$120.00", image: "https://www.bullrockfitness.com/wp-content/uploads/2021/12/Hex-Dumbbells-1.jpg" },
+  { id: 3, name: " Indoor Stationary - Air Bike", price: "$140.00", image: "https://cdn.shopify.com/s/files/1/0471/3332/7519/files/10-best-and-worst-cardio-machines-v2-10.jpg?v=1730755039" },
+  { id: 4, name: "Yoga Ball  - Balloon ", price: "$120.00", image: "https://cdn.mos.cms.futurecdn.net/gxWm3asdF6AAe2rR9ziao8-1200-80.jpg" },
+  { id: 5, name: "Adjustable Dumbbell  - (Metal Integrated)", price: "$150.00", image: "https://leewayfitness.in/wp-content/uploads/2024/12/Adjustable-Dumbbell-Colour-600-03.jpg" },
+  { id: 6, name: "Cast Iron Kettlebells - 2.0", price: "$140.00", image: "https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2023%2F10%2Fnike-strength-gym-equipment-announcement-release-info-001.jpg?q=75&w=800&cbr=1&fit=max" },
+  { id: 7, name: "Fingers Hand Grip - Fitness Grip", price: "$14.00", image: "https://m.media-amazon.com/images/I/51nUhyULa1L._AC._SR360,460.jpg" }, // Changed name for uniqueness
+  { id: 8, name: "Resistance Band Set -  Exercise Bands", price: "$140.00", image: "https://www.mensjournal.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTk2MTM2MDg5Mzk2Mzg5MDA5/smartgym.jpg" }, // Changed name for uniqueness
 ];
 
 const sneakers = [
