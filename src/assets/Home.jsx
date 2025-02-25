@@ -131,7 +131,7 @@ export default function Home() {
  
   return (
     <>
-    <section className="relative w-full h-[730px] flex items-center justify-center px-12 overflow-hidden">
+    <section className="relative w-full h-[730px] flex items-center justify-center px-12 overflow-hidden ">
       {slides.map((slide, index) => (
         <motion.video
         key={index}
@@ -221,7 +221,7 @@ export default function Home() {
     
 
 
-    <div className="bg-white text-black py-24 px-6 md:px-16">
+    <div className="bg-neutral-900 text-white py-24 px-6 md:px-16">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         {/* Left Side - Image */}
         <div className="relative w-full max-w-3xl mx-auto md:mx-0">
@@ -248,10 +248,10 @@ export default function Home() {
           viewport={{ once: true }}
           className="space-y-6"
         >
-          <h2 className="text-5xl font-bold uppercase tracking-wide text-gray-900">
+          <h2 className="text-5xl font-bold uppercase tracking-wide text-white">
             Transform Your Body
           </h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
+          <p className="text-lg text-slate-400 leading-relaxed">
             Join our fitness community and take your health to the next level. Our
             expert trainers, state-of-the-art equipment, and science-backed
             programs ensure you get the best results possible.
@@ -261,25 +261,25 @@ export default function Home() {
               <span className="w-12 h-12 bg-orange-500 text-white flex items-center justify-center text-2xl font-bold rounded-full shadow-md">
                 ✓
               </span>
-              <p className="text-gray-700 text-lg font-medium">Personalized Training</p>
+              <p className="text-slate-400 text-lg font-medium">Personalized Training</p>
             </div>
             <div className="flex items-center gap-4">
               <span className="w-12 h-12 bg-orange-500 text-white flex items-center justify-center text-2xl font-bold rounded-full shadow-md">
                 ✓
               </span>
-              <p className="text-gray-700 text-lg font-medium">Advanced Equipment</p>
+              <p className="text-slate-400 text-lg font-medium">Advanced Equipment</p>
             </div>
             <div className="flex items-center gap-4">
               <span className="w-12 h-12 bg-orange-500 text-white flex items-center justify-center text-2xl font-bold rounded-full shadow-md">
                 ✓
               </span>
-              <p className="text-gray-700 text-lg font-medium">Nutrition Guidance</p>
+              <p className="text-slate-400 text-lg font-medium">Nutrition Guidance</p>
             </div>
             <div className="flex items-center gap-4">
               <span className="w-12 h-12 bg-orange-500 text-white flex items-center justify-center text-2xl font-bold rounded-full shadow-md">
                 ✓
               </span>
-              <p className="text-gray-700 text-lg font-medium">Community Support</p>
+              <p className="text-slate-400 text-lg font-medium">Community Support</p>
             </div>
           </div>
           <motion.a
@@ -293,7 +293,7 @@ export default function Home() {
     </div>
 
 
-    <section className="py-6 bg-white text-black">
+    <section className="py-6 bg-neutral-900 text-slate-400">
       <div className="max-w-7xl mx-auto px-6">
       <div className="relative">
       <motion.h2 
@@ -429,7 +429,7 @@ export default function Home() {
     
 
    
-<section className="bg-white text-black p-8 md:p-16 lg:flex lg:items-center">
+<section className="bg-neutral-900 text-slate-400 p-8 md:p-16 lg:flex lg:items-center">
       {/* Left Side - Image */}
       <div className="lg:w-1/2 mb-8 lg:mb-0 flex justify-center">
         <img
@@ -442,22 +442,22 @@ export default function Home() {
       {/* Right Side - Content */}
       <div className="lg:w-1/2 lg:pl-10">
         <h3 className="text-yellow-500 text-xl font-bold">Recipes</h3>
-        <h2 className="text-4xl font-extrabold mt-3">Protein-packed power bowl</h2>
-        <p className="text-gray-600 mt-4 leading-relaxed">
+        <h2 className="text-4xl font-extrabold text-white mt-3">Protein-packed power bowl</h2>
+        <p className="text-slate-400 mt-4 leading-relaxed">
           A colorful protein-packed power bowl filled with flavorful, meaty grilled satay tofu and an
           array of vibrant veggies on a bed of fluffy quinoa. Completed with a healthy and delicious
           satay dipping sauce and crushed roasted peanuts. Delicious!
         </p>
         
         {/* View Full Recipe Button */}
-        <button className="mt-6 border-2 border-yellow-500 text-black px-6 py-2 rounded-full flex items-center gap-2 hover:bg-yellow-500 hover:text-white transition-all shadow-md">
+        <button className="mt-6 border-2 border-yellow-500 text-white px-6 py-2 rounded-full flex items-center gap-2 hover:bg-yellow-500 hover:text-white transition-all shadow-md">
           View Full Recipe
           <span>&rarr;</span>
         </button>
       </div>
       
       <div className="lg:w-1/3 flex flex-col gap-6 mt-10 lg:mt-0 lg:ml-10">
-        <button className="self-start px-8 py-3 border-2 border-yellow-400 text-black font-medium rounded-full hover:bg-yellow-400 hover:text-black transition-all">
+        <button className="self-start px-8 py-3 border-2 border-yellow-400 text-white font-medium rounded-full hover:bg-yellow-400 hover:text-black transition-all">
           View More Recipes
         </button>
         <div className="flex flex-col gap-4">
@@ -481,9 +481,9 @@ export default function Home() {
     </section>
 
 
-    <section className="py-12 bg-white">
+    <section className="py-12 bg-neutral-900">
       <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold text-gray-900">Latest Blog Posts</h2>
+        <h2 className="text-3xl font-bold text-white">Latest Blog Posts</h2>
         <p className="text-red-500 font-medium mt-1"> <span className="inline-block w-12 h-[2px] bg-red-500"></span> our blog <span className="inline-block w-12 h-[2px] bg-red-500"></span></p>
       </div>
 
@@ -557,9 +557,9 @@ export default function Home() {
       </div>
     </div>
 
-    <div class="relative overflow-hidden bg-orange-500 py-4">
+    <div class="relative overflow-hidden bg-neutral-900 py-4">
  
-  <div class="absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-orange-500 to-transparent z-10"></div>
+  <div class="absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-neutral-900 to-transparent z-10"></div>
   
  
   <div class="marquee flex space-x-16">
@@ -571,7 +571,7 @@ export default function Home() {
     </span>
   </div>
 
-  <div class="absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-orange-500 to-transparent z-10"></div>
+  <div class="absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-neutral-900 to-transparent z-10"></div>
 </div>
 
 

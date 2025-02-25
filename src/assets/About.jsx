@@ -48,7 +48,7 @@ function About() {
         </div>
       </div>
       
-      <section className="mx-auto max-w-screen-2xl px-4 md:px-8 p-10 ">
+      <section className="mx-auto max-w-screen-2xl px-4 md:px-8 p-10 bg-neutral-900">
         <div className="mb-8 flex flex-wrap justify-between md:mb-16">
           <div className="mb-6 flex w-full flex-col justify-center sm:mb-12 lg:mb-0 lg:w-1/3 lg:pb-24 lg:pt-48">
             <h1 className="mb-4 text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-600 sm:text-5xl md:mb-8 md:text-6xl">Find your<br />style online</h1>
@@ -67,19 +67,19 @@ function About() {
           <div className="-mx-6 grid grid-cols-2 gap-4 md:-mx-8 md:flex md:divide-x">
             <div className="px-6 md:px-8">
               <span className="block text-center text-lg font-bold text-orange-500 md:text-left md:text-xl">{stats.members}+</span>
-              <span className="block text-center text-sm font-semibold text-gray-800 md:text-left md:text-base">Active Members</span>
+              <span className="block text-center text-sm font-semibold text-slate-400 md:text-left md:text-base">Active Members</span>
             </div>
             <div className="px-6 md:px-8">
               <span className="block text-center text-lg font-bold text-orange-500 md:text-left md:text-xl">{stats.trainers}+</span>
-              <span className="block text-center text-sm font-semibold text-gray-800 md:text-left md:text-base">Professional Trainers</span>
+              <span className="block text-center text-sm font-semibold text-slate-400 md:text-left md:text-base">Professional Trainers</span>
             </div>
             <div className="px-6 md:px-8">
               <span className="block text-center text-lg font-bold text-orange-500 md:text-left md:text-xl">{stats.classes}+</span>
-              <span className="block text-center text-sm font-semibold text-gray-800 md:text-left md:text-base">Weekly Classes</span>
+              <span className="block text-center text-sm font-semibold text-slate-400 md:text-left md:text-base">Weekly Classes</span>
             </div>
             <div className="px-6 md:px-8">
               <span className="block text-center text-lg font-bold text-orange-500 md:text-left md:text-xl">{stats.equipment}+</span>
-              <span className="block text-center text-sm font-semibold text-gray-800 md:text-left md:text-base">Top Equipment</span>
+              <span className="block text-center text-sm font-semibold text-slate-400 md:text-left md:text-base">Top Equipment</span>
             </div>
 
             
@@ -113,13 +113,13 @@ function About() {
       </section>
 
 
-      <div class="bg-white py-6 sm:py-8 lg:py-12">
+      <div class="bg-neutral-900 py-6 sm:py-8 lg:py-12">
   <div class="mx-auto max-w-screen-xl px-4 md:px-8">
    
     <div class="mb-10 md:mb-16">
-      <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">Meet our Trainers</h2>
+      <h2 class="mb-4 text-center text-2xl font-bold text-white md:mb-6 lg:text-3xl">Meet our Trainers</h2>
 
-      <p class="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">This is a section of some simple filler text, also known as placeholder text. It shares some characteristics of a real written text but is random or otherwise generated.</p>
+      <p class="mx-auto max-w-screen-md text-center text-slate-400 md:text-lg">This is a section of some simple filler text, also known as placeholder text. It shares some characteristics of a real written text but is random or otherwise generated.</p>
     </div>
    
 
@@ -319,7 +319,7 @@ function About() {
     <div class="max-w-[85rem] px-4 py-12 sm:px-6 lg:px-8 lg:py-16 mx-auto">
      
       <div aria-hidden="true" class="flex -z-[1] absolute start-0">
-        <div class="bg-purple-200 opacity-20 blur-3xl w-[1036px] h-[300px] dark:bg-purple-900 dark:opacity-20"></div>
+        <div class="bg-neutral-600  blur-3xl w-[1036px] h-[300px] dark:bg-neutral-800 dark:opacity-50"></div>
       </div>
       
 
@@ -363,7 +363,7 @@ function About() {
     </div>
   </div>
  
-
+  <div className='bg-neutral-900'>
   <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
       <div className="grid md:grid-cols-5 gap-10">
         <div className="md:col-span-2">
@@ -694,6 +694,7 @@ function About() {
           </div>
         </div>
       </div>
+    </div>
     </div>
 
 
