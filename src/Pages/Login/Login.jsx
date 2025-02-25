@@ -14,18 +14,6 @@ function Login() {
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
 
-    useEffect(() => {
-        fetchUser()
-    }, [])
-
-    const fetchUser = () => {
-        axios
-            .get("https://fitmakerbackend.vercel.app/register")
-            .then((res) => {
-                console.log(res.data);
-            })
-    }
-
     const handleLogin = async (event) => {
         event.preventDefault();
         let token = !!localStorage.getItem("token")
@@ -39,16 +27,16 @@ function Login() {
         } else {
             try {
                 const response = await axios
-                    .post("https://fitmakerbackend.vercel.app/login", { email, password })
+                    .post("http://localhost:5000/login", { email, password })
                 const token = response.data.token
                 setEmail("")
                 setPassword("")
-                fetchUser()
+
                 if (response.data.status === "SUCCESS") {
                     toast.success(response.data.message)
                     setTimeout(() => {
                         navigate("/account")
-                    }, 2000)
+                    }, 1500)
                 } else {
                     toast.error(response.data.message)
                 }
@@ -64,11 +52,8 @@ function Login() {
     }
     return (
         <div className="flex flex-col justify-center items-center h-dvh text-black w-full ">
-            <Toaster
-                position="top-right"
-                style={{ marginTop: "60px" }}
-                reverseOrder={false}
-            />
+            <Toaster position="top-right" style={{ marginTop: "70px", zIndex: "9999" }} reverseOrder={false} />
+
             <img src="/assets/FitMaker.png" alt="" width={55} className="rounded-lg" />
             <form onSubmit={handleLogin}>
                 <div className="flex flex-col justify-center  w-fit p-4   bg-white rounded-lg h-fit px-7">

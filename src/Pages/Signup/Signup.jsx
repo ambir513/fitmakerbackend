@@ -15,17 +15,7 @@ function Signup() {
     const [typechanger, setTypeChanger] = useState("")
     const navigate = useNavigate()
 
-    useEffect(() => {
-        fetchUser()
-    }, [])
 
-    const fetchUser = () => {
-        axios
-            .get("https://fitmakerbackend.vercel.app/register")
-            .then((res) => {
-                // console.log(res.data);
-            })
-    }
 
     const handleRegister = (event) => {
         event.preventDefault()
@@ -39,17 +29,17 @@ function Signup() {
             })
         } else {
             axios
-                .post("https://fitmakerbackend.vercel.app/register", { username, email, password })
+                .post("http://localhost:5000/register", { username, email, password })
                 .then((res) => {
                     setEmail("")
                     setUsername("")
                     setPassword("")
-                    fetchUser()
+
                     if (res.data.status === "SUCCESS") {
                         toast.success(res.data.message, {
                             action: {
-                                label: 'login now',
-                                onClick: () => navigate("/login"),
+                                label: 'Link',
+                                onClick: () => window.location.href = 'https://mail.google.com/mail/u/0/#inbox',
                             }
                         })
                     } else {
@@ -57,7 +47,7 @@ function Signup() {
                     }
                 })
                 .catch((error) => {
-                    console.log("Unable to register user");
+                    console.error("Error registering user:", error.response?.data || error.message);
                 })
         }
     }

@@ -1,9 +1,21 @@
 import { motion } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
-import wallpaper from '/assets/home-wallpaper.png';
-import ipadWallaper from '/assets/ipad-home-wallpaper.png';
-import mobileWallpaper from '/assets/mobile-home-wallpaper.png';
+import { useState, useEffect } from "react";
+import video1 from "./T1.mp4";
+import video2 from "./T2.mp4";
+import video3 from "./T3.mp4";
+import { MdArrowForward, MdArrowBack } from "react-icons/md";
+import { FaQuoteRight } from "react-icons/fa";
+import { XMarkIcon, PlayIcon } from "@heroicons/react/24/solid";
+import './Home.css'
 import { Link } from "react-router-dom";
+
+
+const slides = [
+  { video: video1 },
+  { video: video2 },
+  { video: video3 },
+];
+
 
 const services = [
   {
@@ -39,51 +51,181 @@ const services = [
   },
 ];
 
-const trainers = [
-  { name: "Sam Cole", role: "Personal Trainer", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8AV2cwH8IEiYbLVr2BB2qWjIwff8FRvTCYQ&s" },
-  { name: "M. Harris", role: "Personal Trainer", img: "trainer2.jpg" },
-  { name: "John Haley", role: "Personal Trainer", img: "trainer3.jpg" },
-  { name: "Tom Blake", role: "Personal Trainer", img: "trainer4.jpg" },
+const blogs = [
+  {
+    image: "https://images.pexels.com/photos/868483/pexels-photo-868483.jpeg?auto=compress&cs=tinysrgb&w=600",
+    date: "April 19, 2025",
+    title: "Fitness helps you think and feel better",
+  },
+  {
+    image: "https://images.pexels.com/photos/2662878/pexels-photo-2662878.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    date: "April 21, 2025",
+    title: "How to Prepare Meals Fast and Easy",
+  },
+  {
+    image: "https://images.pexels.com/photos/6455834/pexels-photo-6455834.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+    date: "April 25, 2025",
+    title: "Today is the Best Day to Start Training",
+  },
 ];
+
+const testimonials = [
+  {
+    name: "Steven Haward",
+    role: "Our Trainer",
+    image: "https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=600",
+    review:
+      "I've been using Fitmaker for the past three months, and I'm genuinely impressed. The website is easy to navigate, and everything is laid out clearly. I purchased the premium plan, ",
+  },
+  {
+    name: "Josh Oliver",
+    role: "Fitness Enthusiast",
+    image: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=600",
+    review:
+      "Fitmaker has transformed my fitness journey! The trainers are amazing, and the content is top-notch.",
+  },
+  {
+    name: "Edward Hawley",
+    role: "Athlete",
+    image: "https://images.pexels.com/photos/1182825/pexels-photo-1182825.jpeg?auto=compress&cs=tinysrgb&w=600",
+    review:
+      "Highly professional coaching and well-structured programs. I've seen great results!",
+  },
+];
+
+
 
 
 
 export default function Home() {
   const [current, setCurrent] = useState(0);
+  const isUserSignIn = !!localStorage.getItem("token")
 
-  const img = useRef()
-  const laptop = window.innerWidth >= 1024
-  const ipod = window.innerWidth >= 640
-  const mobile = window.innerWidth >= 393
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+
+  const nextSlide = () => {
+    setCurrent((prev) => (prev + 1) % slides.length);
+  };
+
+  const [index, setIndex] = useState(0);
+
+  const nextTestimonial = () => {
+    setIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setIndex((prevIndex) =>
+      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+    );
+  };
+
+  const [isOpen, setIsOpen] = useState(false);
+
+
+
 
   return (
     <>
-      <div className="lg:static mt-10">
-        <div className="relative w-full lg:h-[700px] md:h-[600px] sm:h-[500px]  sm:w-full">
-          <img ref={img} src={(laptop ? wallpaper : null) || (ipod ? ipadWallaper : null) || (mobile ? mobileWallpaper : null)} className="z-10 object-cover object-center w-full h-full" alt="Home Wallpaper" />
-        </div>
-        <div className=" lg:absolute md:absolute absolute left-5 top-[420px] md:left-10 sm:absolute sm:top-[200px] sm:left-10 md:top-[380px] lg:left-20 lg:top-[330px] z-10">
+      <section className="relative w-full h-[730px] flex items-center justify-center px-12 overflow-hidden ">
+        {slides.map((slide, index) => (
+          <motion.video
+            key={index}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={index === current ? { opacity: 1, scale: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.1, ease: "easeInOut" }} // Smooth transition
+            className="absolute inset-0 w-full h-full object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            style={{
+              willChange: "transform, opacity",
+              transform: "translateZ(0)",
+              backfaceVisibility: "hidden",
+              objectFit: "cover"
+            }}
+          >
+            <source src={slide.video} type="video/mp4" />
+          </motion.video>
+
+        ))}
+
+
+
+        {/* Overlay */}
+        <div className="absolute inset-0 "></div>
+        {/* Overlay Container */}
+        <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center text-white px-4">
+          {/* Main Heading */}
           <motion.h1
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }} className='lg:text-4xl md:text-2xl sm:text-xl text-xl font-extrabold lg:text-WallpaperColorText  text-white sm:text-WallpaperColorText md:text-neutral-200 '>Transform Your Life At HomeFit Zone</motion.h1>
+            transition={{ duration: 1 }}
+            className="text-5xl md:text-6xl sm:text-4xl  uppercase tracking-wider leading-tight drop-shadow-lg"
+          >
+            Transform Your Life At
+          </motion.h1>
+          {/* Subheading */}
+          <motion.h2
+            initial={{ opacity: 0, y: -40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="text-3xl md:text-4xl sm:text-2xl uppercase mt-2 drop-shadow-lg"
+          >
+            HomeFit Zone
+          </motion.h2>
+          {/* Description */}
           <motion.p
             initial={{ opacity: 10, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0 }}
-            className='mt-4 sm:text-WallpaperColorText2 sm:text-md text-white text-lg'>Your Ultimate Home Workout Destination</motion.p>
-          <Link to="/membership" className='cursor-pointer'>
+            transition={{ duration: 1, delay: 0.6 }}
+            className="text-base md:text-lg sm:text-sm text-gray-300 mt-4 max-w-2xl drop-shadow-md"
+          >
+            Your Ultimate Home Workout Destination
+          </motion.p>
+          {/* Call-to-Action Button */}
+          <Link to={isUserSignIn ? "/diet-filter" : "/signup"}>
             <motion.button
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.9 }} className=' cursor-pointer  sm:mt-8 mt-4 bg-gradient-to-r from-red-600 to-red-500 text-white  text-sm rounded-lg py-2 px-4 font-bold'>Start Your Journey
+              transition={{ duration: 0.8, delay: 0.9 }}
+              className="mt-6 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-6 md:px-8 py-2 md:py-3 rounded-full text-base md:text-lg  uppercase shadow-lg tracking-wide transform transition-transform duration-300 hover:scale-105"
+            >
+              Start Your Journey
             </motion.button>
           </Link>
         </div>
-      </div>
 
 
-      <div className="bg-white text-black py-24 px-6 md:px-16">
+
+
+
+
+
+
+        {/* Auto-slide change */}
+        <motion.div
+          className="absolute bottom-10 right-12 text-white text-sm cursor-pointer"
+          onClick={nextSlide}
+          whileHover={{ scale: 1.1 }}
+        >
+          Next Slide →
+        </motion.div>
+      </section>
+
+
+
+
+
+      <div className="bg-neutral-900 text-white py-24 px-6 md:px-16">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           {/* Left Side - Image */}
           <div className="relative w-full max-w-3xl mx-auto md:mx-0">
@@ -110,10 +252,10 @@ export default function Home() {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <h2 className="text-5xl font-bold uppercase tracking-wide text-gray-900">
+            <h2 className="text-5xl font-bold uppercase tracking-wide text-white">
               Transform Your Body
             </h2>
-            <p className="text-lg text-gray-600 leading-relaxed">
+            <p className="text-lg text-slate-400 leading-relaxed">
               Join our fitness community and take your health to the next level. Our
               expert trainers, state-of-the-art equipment, and science-backed
               programs ensure you get the best results possible.
@@ -123,39 +265,41 @@ export default function Home() {
                 <span className="w-12 h-12 bg-orange-500 text-white flex items-center justify-center text-2xl font-bold rounded-full shadow-md">
                   ✓
                 </span>
-                <p className="text-gray-700 text-lg font-medium">Personalized Training</p>
+                <p className="text-slate-400 text-lg font-medium">Personalized Training</p>
               </div>
               <div className="flex items-center gap-4">
                 <span className="w-12 h-12 bg-orange-500 text-white flex items-center justify-center text-2xl font-bold rounded-full shadow-md">
                   ✓
                 </span>
-                <p className="text-gray-700 text-lg font-medium">Advanced Equipment</p>
+                <p className="text-slate-400 text-lg font-medium">Advanced Equipment</p>
               </div>
               <div className="flex items-center gap-4">
                 <span className="w-12 h-12 bg-orange-500 text-white flex items-center justify-center text-2xl font-bold rounded-full shadow-md">
                   ✓
                 </span>
-                <p className="text-gray-700 text-lg font-medium">Nutrition Guidance</p>
+                <p className="text-slate-400 text-lg font-medium">Nutrition Guidance</p>
               </div>
               <div className="flex items-center gap-4">
                 <span className="w-12 h-12 bg-orange-500 text-white flex items-center justify-center text-2xl font-bold rounded-full shadow-md">
                   ✓
                 </span>
-                <p className="text-gray-700 text-lg font-medium">Community Support</p>
+                <p className="text-slate-400 text-lg font-medium">Community Support</p>
               </div>
             </div>
-            <motion.a
-              href="#"
-              className="mt-6 inline-block bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-lg font-semibold rounded-lg transition-all duration-300 shadow-lg"
-            >
-              Join Now
-            </motion.a>
+            <Link to={isUserSignIn ? "/ai-diet-filter" : "/signup"}>
+              <motion.a
+                href="#"
+                className="mt-6 inline-block bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-lg font-semibold rounded-lg transition-all duration-300 shadow-lg"
+              >
+                Join Now
+              </motion.a>
+            </Link>
           </motion.div>
         </div>
       </div>
 
 
-      <section className="py-6 bg-white text-black">
+      <section className="py-6 bg-neutral-900 text-slate-400">
         <div className="max-w-7xl mx-auto px-6">
           <div className="relative">
             <motion.h2
@@ -177,6 +321,8 @@ export default function Home() {
               </span>
             </motion.h2>
           </div>
+
+
 
 
 
@@ -211,65 +357,87 @@ export default function Home() {
         </div>
       </section>
 
-
-      <div className="relative h-96 overflow-hidden flex items-center">
+      <div className="relative h-[510px] flex items-center justify-center overflow-hidden bg-black">
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              "url('https://images.pexels.com/photos/3309775/pexels-photo-3309775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
+              "url('https://images3.alphacoders.com/134/1342304.jpeg')",
             backgroundAttachment: "fixed",
-            backgroundSize: "cover",
-            backgroundPosition: "center center",
           }}
         ></div>
 
-        {/* Content Section */}
-        <motion.div
-          initial={{ x: -100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="relative flex flex-col items-start justify-center text-white text-left px-10 bg-black/50 w-1/2 h-full"
-        >
-          <div className="text-center sm:text-left max-w-sm mx-auto sm:max-w-md">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold uppercase">
-              Gyms Don’t Change Lives. People Do.
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+
+        {/* Content Wrapper */}
+        <div className="relative z-10 flex flex-col sm:flex-row items-center w-full max-w-7xl px-4 sm:px-8 md:px-12 space-y-8 sm:space-y-0">
+
+          {/* Left Content Section */}
+          <motion.div
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="w-full sm:w-1/2 flex flex-col justify-center text-white text-center sm:text-left space-y-6"
+          >
+            <h2 className="text-[clamp(2rem,5vw,4rem)] font-extrabold uppercase tracking-wide leading-tight text-white drop-shadow-lg">
+              Redefine Your Limits
             </h2>
-            <p className="text-sm sm:text-base mt-2 sm:mt-3 max-w-sm">
-              Push beyond limits and unlock your full potential.
+            <p className="text-[clamp(1rem,2.5vw,1.25rem)] text-gray-300 max-w-lg leading-relaxed">
+              Strength isn’t just power, it’s growth. Take the leap, break barriers, and become unstoppable.
             </p>
-            <button className="mt-2 sm:mt-3 px-3 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm bg-white text-black font-semibold uppercase rounded-lg hover:bg-gray-300 transition">
-              Read More
-            </button>
+            <Link to={isUserSignIn ? "/ai-diet-filter" : "/signup"}>
+              <div className="flex justify-center sm:justify-start">
+                <button className="mt-4 w-[clamp(8rem,12vw,10rem)] py-[clamp(0.75rem,1.5vw,1rem)] text-[clamp(0.875rem,1.2vw,1.25rem)] font-semibold uppercase bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-xl shadow-xl hover:scale-110 transition-transform duration-300">
+                  Get Fit
+                </button>
+              </div>
+            </Link>
+          </motion.div>
+
+          {/* Right Content Section - Play Button */}
+          <div className="w-full sm:w-1/2 flex justify-center items-center mt-8 sm:mt-0">
+            <div
+              className="relative cursor-pointer p-4 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 animate-[wiggle_1.5s_infinite] 
+                   before:absolute before:w-full before:h-full before:rounded-full before:border-4 
+                   before:border-orange-500 before:opacity-0 before:animate-[pulseWave_2s_infinite]"
+              onClick={() => setIsOpen(true)}
+            >
+              <PlayIcon className="w-16 h-16 text-orange-500 drop-shadow-lg" />
+            </div>
           </div>
 
+        </div>
 
-        </motion.div>
-
-        {/* Video Section */}
-        <motion.div
-          initial={{ x: 100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="relative w-1/2 h-full"
-        >
-          <video
-            className="w-full h-full object-cover"
-            autoPlay
-            loop
-            muted
-            playsInline
-          >
-            <source
-              src="https://videos.pexels.com/video-files/18941351/18941351-hd_1080_1920_50fps.mp4"
-              type="video/mp4"
-            />
-          </video>
-        </motion.div>
+        {/* Video Modal */}
+        {isOpen && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-90 backdrop-blur-lg z-50 p-4">
+            <div className="relative w-full max-w-3xl bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
+              {/* Close Button */}
+              <button
+                className="absolute top-4 right-4 text-white bg-red-500 w-10 h-10 rounded-full flex items-center justify-center hover:bg-red-600 transition-all"
+                onClick={() => setIsOpen(false)}
+              >
+                <XMarkIcon className="w-6 h-6" />
+              </button>
+              {/* Embedded Video */}
+              <iframe
+                className="w-full h-[clamp(250px,50vw,450px)] rounded-xl"
+                src="https://www.youtube.com/embed/qh3NGpYRG3I?autoplay=1"
+                title="Hero Video"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+        )}
       </div>
 
-      <section className="bg-white text-black p-8 md:p-16 lg:flex lg:items-center">
+
+
+
+      <section className="bg-neutral-900 text-slate-400 p-8 md:p-16 lg:flex lg:items-center">
         {/* Left Side - Image */}
         <div className="lg:w-1/2 mb-8 lg:mb-0 flex justify-center">
           <img
@@ -282,22 +450,24 @@ export default function Home() {
         {/* Right Side - Content */}
         <div className="lg:w-1/2 lg:pl-10">
           <h3 className="text-yellow-500 text-xl font-bold">Recipes</h3>
-          <h2 className="text-4xl font-extrabold mt-3">Protein-packed power bowl</h2>
-          <p className="text-gray-600 mt-4 leading-relaxed">
+          <h2 className="text-4xl font-extrabold text-white mt-3">Protein-packed power bowl</h2>
+          <p className="text-slate-400 mt-4 leading-relaxed">
             A colorful protein-packed power bowl filled with flavorful, meaty grilled satay tofu and an
             array of vibrant veggies on a bed of fluffy quinoa. Completed with a healthy and delicious
             satay dipping sauce and crushed roasted peanuts. Delicious!
           </p>
 
           {/* View Full Recipe Button */}
-          <button className="mt-6 border-2 border-yellow-500 text-black px-6 py-2 rounded-full flex items-center gap-2 hover:bg-yellow-500 hover:text-white transition-all shadow-md">
-            View Full Recipe
-            <span>&rarr;</span>
-          </button>
+          <Link to="/diet-filter">
+            <button className="mt-6 border-2 border-yellow-500 text-white px-6 py-2 rounded-full flex items-center gap-2 hover:bg-yellow-500 hover:text-white transition-all shadow-md">
+              View Full Recipe
+              <span>&rarr;</span>
+            </button>
+          </Link>
         </div>
 
         <div className="lg:w-1/3 flex flex-col gap-6 mt-10 lg:mt-0 lg:ml-10">
-          <button className="self-start px-8 py-3 border-2 border-yellow-400 text-black font-medium rounded-full hover:bg-yellow-400 hover:text-black transition-all">
+          <button className="self-start px-8 py-3 border-2 border-yellow-400 text-white font-medium rounded-full hover:bg-yellow-400 hover:text-black transition-all">
             View More Recipes
           </button>
           <div className="flex flex-col gap-4">
@@ -321,32 +491,100 @@ export default function Home() {
       </section>
 
 
-
-
-
-      <section className="bg-white py-16 px-8 text-black">
+      <section className="py-12 bg-neutral-900">
         <div className="text-center mb-8">
-          <h2 className="text-4xl font-bold">Meet Our <span className="text-red-500">Trainers</span></h2>
-          <p className="mt-2 text-gray-300">At This Part You Can See Some Of Our Trainers And Their Work.</p>
+          <h2 className="text-3xl font-bold text-white">Latest Blog Posts</h2>
+          <p className="text-red-500 font-medium mt-1"> <span className="inline-block w-12 h-[2px] bg-red-500"></span> our blog <span className="inline-block w-12 h-[2px] bg-red-500"></span></p>
         </div>
-        <div className="grid md:grid-cols-4 gap-6">
-          {trainers.map((trainer, index) => (
-            <div key={index} className="bg-gray-900 rounded-lg shadow-lg overflow-hidden">
-              <img src={trainer.img} alt={trainer.name} className="w-full h-60 object-cover" />
-              <div className="p-4 text-center">
-                <h3 className="text-xl font-semibold">{trainer.name}</h3>
-                <p className="text-gray-400">{trainer.role}</p>
-                <a href="#" className="text-red-500 mt-2 inline-block">Learn More →</a>
+
+        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-6 px-4">
+          {blogs.map((blog, index) => (
+            <div key={index} className="relative group overflow-hidden rounded-lg shadow-lg">
+              <img src={blog.image} alt={blog.title} className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-50 transition-all"></div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <span className="bg-orange-600 text-xs px-3 py-1 rounded-full">{blog.date}</span>
+                <h3 className="text-lg font-semibold mt-2">{blog.title}</h3>
               </div>
             </div>
           ))}
         </div>
-        <div className="text-center mt-8">
-          <button className="px-6 py-2 border border-red-500 text-red-500 rounded-full hover:bg-red-500 hover:text-white transition">
-            View All
+      </section>
+
+
+
+
+      <div className="flex flex-col items-center  text-white py-20 px-8 relative w-screen max-w-full mx-auto">
+        <div className="absolute inset-0 w-full h-full bg-fixed bg-[url('https://images.pexels.com/photos/927437/pexels-photo-927437.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-no-repeat bg-cover bg-center"></div>
+
+
+
+
+        <h2 className="text-4xl sm:text-5xl font-extrabold mb-4 text-center relative z-10">
+          What Our <span className="text-orange-500">Customers Say</span>
+        </h2>
+        <p className="text-lg text-gray-300 mb-8 max-w-2xl text-center relative z-10">
+          Take a look at some of the inspiring stories from our community members.
+        </p>
+        <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 max-w-6xl relative z-10">
+          <motion.img
+            key={testimonials[index].image}
+            src={testimonials[index].image}
+            alt={testimonials[index].name}
+            className="w-64 h-64 md:w-80 md:h-80 rounded-lg shadow-xl object-cover"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 50 }}
+            transition={{ duration: 0.5 }}
+          />
+          <motion.div
+            key={testimonials[index].name}
+            className="bg-orange-500 text-white p-6 md:p-8 rounded-xl shadow-xl max-w-xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h3 className="text-xl md:text-2xl font-bold">{testimonials[index].name}</h3>
+            <p className="text-sm md:text-lg text-gray-300 mb-4">{testimonials[index].role}</p>
+            <p className="text-sm md:text-base leading-relaxed">{testimonials[index].review}</p>
+            <FaQuoteRight className="text-3xl md:text-4xl text-gray-300 mt-4" />
+          </motion.div>
+        </div>
+        <div className="flex gap-6 mt-8 relative z-10">
+          <button
+            onClick={prevTestimonial}
+            className="bg-gray-700 p-3 rounded-full hover:bg-gray-600 transition-all"
+          >
+            <MdArrowBack className="text-white text-2xl" />
+          </button>
+          <button
+            onClick={nextTestimonial}
+            className="bg-gray-700 p-3 rounded-full hover:bg-gray-600 transition-all"
+          >
+            <MdArrowForward className="text-white text-2xl" />
           </button>
         </div>
-      </section>
+      </div>
+
+      <div class="relative overflow-hidden bg-neutral-900 py-4">
+
+        <div class="absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-neutral-900 to-transparent z-10"></div>
+
+
+        <div class="marquee flex space-x-16">
+          <span class="marquee-text">
+            Personal Coach • Online Store • Kids Sports • Martial Arts • Gym Website • Personal Training • Sports Equipment
+          </span>
+          <span class="marquee-text">
+            Personal Coach • Online Store • Kids Sports • Martial Arts • Gym Website • Personal Training • Sports Equipment
+          </span>
+        </div>
+
+        <div class="absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-neutral-900 to-transparent z-10"></div>
+      </div>
+
+
 
 
     </>

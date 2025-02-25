@@ -1,11 +1,11 @@
-import { useRouteError } from "react-router-dom";
 
-export default function ErrorBoundary() {
-    const error = useRouteError();
+function ErrorBoundary() {
     return (
-        <div className="text-center p-10">
-            <h1 className="text-red-500 text-3xl">Oops! Something went wrong 😞</h1>
-            <p>{error.statusText || error.message}</p>
+        <div className="text-center flex flex-col justify-center items-center p-10 gap-5 w-full h-screen">
+            <h1 className="text-5xl ">404 Not found Page</h1>
+            <p className="text-red-500 text-2xl">Oops! Something went wrong 😞</p>
         </div>
     );
 }
+
+export default ErrorBoundary

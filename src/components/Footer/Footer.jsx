@@ -44,7 +44,7 @@ function Footer() {
                 <Link>Facebook</Link>
                 <Link>Twitter</Link>
                 <Link>LinkedIn</Link>
-              
+
               </div>
             </div>
           </div>
