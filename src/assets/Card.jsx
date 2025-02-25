@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 
 const Card = () => {
   const { profileId } = useParams();
+  
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState('membership'); // State for active tab
 
@@ -14,10 +15,51 @@ const Card = () => {
       rating: 4,
       reviews: 150,
       images: [
-        "https://readymadeui.com/images/product1.webp",
-        "https://readymadeui.com/images/product2.webp",
-        "https://readymadeui.com/images/product3.webp",
-        "https://readymadeui.com/images/product6.webp",
+        "https://www.bullrockfitness.com/wp-content/uploads/2021/12/Hex-Dumbbells-1.jpg",
+        "https://www.bullrockfitness.com/wp-content/uploads/2021/12/Hex-Dumbbells-5-1-1.jpg",
+        "https://www.bullrockfitness.com/wp-content/uploads/2021/12/Hex-Dumbbells-3.jpg",
+        "https://www.bullrockfitness.com/wp-content/uploads/2021/12/Hex-Dumbbells-6.jpg",
+      ],
+      description: "Join the PowerFit Gym with this membership plan. Access state-of-the-art equipment, group classes, and personal training sessions to kickstart your fitness journey.",
+      features: ["Unlimited gym access", "Group fitness classes", "Locker room access", "Free fitness assessment"],
+      modelMeasurements: { bust: "N/A", waist: "N/A", hip: "N/A", size: "One-size plan" },
+      fabric: "Includes complimentary gym towel and water bottle made from eco-friendly materials.",
+      washCare: "Wash gym towel with cold water, air dry recommended.",
+      note: "Membership is valid for 30 days. Renew anytime for continued access. Check class schedules online.",
+      reviewsContent: [
+        {
+          reviewer: "John Doe",
+          rating: 5,
+          comment: "Amazing gym! The equipment is top-notch, and the classes are super motivating. Totally worth the membership!",
+          date: "2 months ago",
+        },
+        {
+          reviewer: "Jane Smith",
+          rating: 4,
+          comment: "Great experience overall, but sometimes the gym gets crowded during peak hours. Still, the trainers are fantastic!",
+          date: "1 month ago",
+        },
+      ],
+      termsConditions: {
+        eligibility: "Open to individuals 18+ with no severe medical conditions.",
+        cancellation: "Cancel anytime with a 7-day notice before renewal. No refunds for partial months.",
+        usage: "Membership is non-transferable and valid only at registered PowerFit locations.",
+        payment: "Auto-renewal unless cancelled. Payments processed monthly via selected method.",
+        additional: "Free gear (towel, bottle) provided on first visit; replacements at additional cost.",
+      },
+    },
+
+    {
+      id: 2,
+      name: "PowerFit Gym Membership",
+      price: "$17.00",
+      rating: 4,
+      reviews: 150,
+      images: [
+        "https://m.media-amazon.com/images/I/71FhEx3flVL._SX679_.jpg",
+        "https://www.bullrockfitness.com/wp-content/uploads/2021/12/Hex-Dumbbells-5-1-1.jpg",
+        "https://www.bullrockfitness.com/wp-content/uploads/2021/12/Hex-Dumbbells-3.jpg",
+        "https://www.bullrockfitness.com/wp-content/uploads/2021/12/Hex-Dumbbells-6.jpg",
       ],
       description: "Join the PowerFit Gym with this membership plan. Access state-of-the-art equipment, group classes, and personal training sessions to kickstart your fitness journey.",
       features: ["Unlimited gym access", "Group fitness classes", "Locker room access", "Free fitness assessment"],
