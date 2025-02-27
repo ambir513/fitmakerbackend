@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 const Cart = () => {
   const { profileId } = useParams();
+  const [selectedImage, setSelectedImage] = useState(null);  // Added state for image selection
 
   const products = [
     {
@@ -106,6 +107,7 @@ const Cart = () => {
   ];
 
   const product = products.find((p) => p.id === parseInt(profileId)) || products[0];
+  const mainImage = selectedImage || product.images[0];  // Added to handle main image selection
 
   return (
     <div className="font-[sans-serif] p-4 bg-gray-100">
@@ -115,7 +117,7 @@ const Cart = () => {
             <div className="flex flex-col gap-4">
               <div className="bg-white shadow p-2">
                 <img
-                  src={product.images[0]}
+                  src={mainImage}  // Changed to use dynamic mainImage
                   alt="Product"
                   className="w-full aspect-[11/8] object-cover object-top"
                 />
@@ -128,6 +130,7 @@ const Cart = () => {
                       src={image}
                       alt={`Product${index + 1}`}
                       className={`w-16 h-16 aspect-square object-cover object-top cursor-pointer shadow-md border-b-2 ${index === 0 ? 'border-black' : 'border-transparent'}`}
+                      onClick={() => setSelectedImage(image)}  // Added click handler
                     />
                   ))}
                 </div>
@@ -214,7 +217,7 @@ const Cart = () => {
                   Back to Shop
                 </Link>
                 <Link
-                  to={`/Purchase/${profileId}`} // New link for Buy it now
+                  to={`/Purchase/${profileId}`}
                   className="px-4 py-3 w-[45%] border border-purple-600 bg-purple-600 hover:bg-purple-700 text-white text-sm font-semibold no-underline text-center"
                 >
                   Buy it now

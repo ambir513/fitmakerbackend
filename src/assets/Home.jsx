@@ -281,7 +281,7 @@ export default function Home() {
     </div>
 
 
-    <section className="py-6 bg-neutral-900 text-slate-400">
+    <section className="py-4 pb-12 bg-neutral-900 text-slate-400">
       <div className="max-w-7xl mx-auto px-6">
       <div className="relative">
       <motion.h2 
@@ -339,7 +339,7 @@ export default function Home() {
       </div>
     </section>
 
-    <div className="relative h-[480px] flex items-center justify-center overflow-hidden bg-black">
+    <div className="relative h-[440px] flex items-center justify-center overflow-hidden bg-black">
   {/* Background Image */}
   <div
     className="absolute inset-0 bg-cover bg-center"
@@ -492,7 +492,7 @@ export default function Home() {
     
 
 
-    <div className="flex flex-col items-center  text-white py-20 px-8 relative w-screen max-w-full mx-auto">
+    <div className="flex flex-col items-center  text-white py-8 px-8 relative w-screen max-w-full mx-auto">
     <div className="absolute inset-0 w-full h-full bg-fixed bg-[url('https://images.pexels.com/photos/927437/pexels-photo-927437.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-no-repeat bg-cover bg-center"></div>
 
     

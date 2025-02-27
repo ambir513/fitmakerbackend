@@ -29,17 +29,30 @@ function Shop() {
     <div>
       {/* Hero Section */}
       <div
-        className="relative w-full h-[500px] bg-cover bg-center bg-fixed"
-        style={{
-          backgroundImage:
-            "url('https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
-        }}
+      className="relative w-full h-[500px] bg-cover bg-center bg-fixed flex flex-col items-center justify-center text-center"
+      style={{
+        backgroundImage:
+          "url('https://images.unsplash.com/photo-1652147760827-1b138d6b9608?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+      }}
+    >
+      {/* Backdrop Blur Effect */}
+      <div className="absolute inset-0 backdrop-blur-none bg-black/20"></div>
+
+      <h1 className="relative text-5xl sm:text-6xl md:text-7xl font-extrabold uppercase mix-blend-difference text-white">
+        Elevate Your Fitness
+      </h1>
+      <p className="relative mt-4 text-lg sm:text-xl md:text-2xl text-white font-light animate-pulse">
+        Premium Supplements for Maximum Performance
+      </p>
+
+      {/* Call-to-Action Button */}
+      <a
+        href="/shop"
+        className="relative mt-6 inline-block px-8 py-3 bg-gradient-to-r from-red-500 to-yellow-400 text-white text-lg font-semibold rounded-lg shadow-lg transition-all duration-300 hover:scale-105"
       >
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-white text-center px-4">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">Welcome to Our Gym</h1>
-          <p className="mt-2 text-base sm:text-lg md:text-xl">Achieve your fitness goals with us</p>
-        </div>
-      </div>
+        Shop Now
+      </a>
+    </div>
 
       {/* Premium Threads */}
       <div className="font-[sans-serif] bg-white p-4 mx-auto max-w-[1400px]">
@@ -160,7 +173,7 @@ function Shop() {
                     </div>
                     <Link
                       to={`/Cart/${sneaker.id}`} // Fixed to use sneaker.id
-                      className="text-sm px-2 h-9 font-semibold w-full bg-blue-600 hover:bg-blue-700 text-white tracking-wide ml-auto outline-none border-none rounded text-center no-underline"
+                      className="text-sm px-2 h-9 font-semibold w-full bg-blue-600 hover:bg-blue-700 text-white tracking-wide ml-auto outline-none border-none rounded text-center no-underline mt-4"
                     >
                       Add to cart
                     </Link>
