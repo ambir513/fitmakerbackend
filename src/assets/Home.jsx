@@ -256,30 +256,18 @@ export default function Home() {
             expert trainers, state-of-the-art equipment, and science-backed
             programs ensure you get the best results possible.
           </p>
-          <div className="grid grid-cols-2 gap-6">
-            <div className="flex items-center gap-4">
-              <span className="w-12 h-12 bg-orange-500 text-white flex items-center justify-center text-2xl font-bold rounded-full shadow-md">
-                ✓
-              </span>
-              <p className="text-slate-400 text-lg font-medium">Personalized Training</p>
-            </div>
-            <div className="flex items-center gap-4">
-              <span className="w-12 h-12 bg-orange-500 text-white flex items-center justify-center text-2xl font-bold rounded-full shadow-md">
-                ✓
-              </span>
-              <p className="text-slate-400 text-lg font-medium">Advanced Equipment</p>
-            </div>
-            <div className="flex items-center gap-4">
-              <span className="w-12 h-12 bg-orange-500 text-white flex items-center justify-center text-2xl font-bold rounded-full shadow-md">
-                ✓
-              </span>
-              <p className="text-slate-400 text-lg font-medium">Nutrition Guidance</p>
-            </div>
-            <div className="flex items-center gap-4">
-              <span className="w-12 h-12 bg-orange-500 text-white flex items-center justify-center text-2xl font-bold rounded-full shadow-md">
-                ✓
-              </span>
-              <p className="text-slate-400 text-lg font-medium">Community Support</p>
+          <div class="flex flex-col gap-4 p-4">
+  <div class="flex items-center gap-4">
+    <span class="flex items-center justify-center w-12 h-12 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-orange-500 text-white text-2xl sm:text-xl md:text-2xl font-bold rounded-full shadow-md">✓</span>
+    <p class="text-slate-400 text-lg sm:text-base md:text-lg font-medium">Advanced Equipment</p>
+  </div>
+  <div class="flex items-center gap-4">
+    <span class="flex items-center justify-center w-12 h-12 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-orange-500 text-white text-2xl sm:text-xl md:text-2xl font-bold rounded-full shadow-md">✓</span>
+    <p class="text-slate-400 text-lg sm:text-base md:text-lg font-medium">Nutrition Guidance</p>
+  </div>
+  <div class="flex items-center gap-4">
+    <span class="flex items-center justify-center w-12 h-12 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-orange-500 text-white text-2xl sm:text-xl md:text-2xl font-bold rounded-full shadow-md">✓</span>
+    <p class="text-slate-400 text-lg sm:text-base md:text-lg font-medium">Community Support</p>
             </div>
           </div>
           <motion.a
@@ -351,19 +339,19 @@ export default function Home() {
       </div>
     </section>
 
-    <div className="relative h-[510px] flex items-center justify-center overflow-hidden bg-black">
+    <div className="relative h-[480px] flex items-center justify-center overflow-hidden bg-black">
   {/* Background Image */}
   <div
     className="absolute inset-0 bg-cover bg-center"
     style={{
       backgroundImage:
-        "url('https://images3.alphacoders.com/134/1342304.jpeg')",
+        "url('https://images.unsplash.com/photo-1577640256262-8488aa247e17?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
       backgroundAttachment: "fixed",
     }}
   ></div>
 
   {/* Dark Overlay */}
-  <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+  <div className="absolute inset-0 bg-black/20 backdrop-blur-none"></div>
 
   {/* Content Wrapper */}
   <div className="relative z-10 flex flex-col sm:flex-row items-center w-full max-w-7xl px-4 sm:px-8 md:px-12 space-y-8 sm:space-y-0">
@@ -441,12 +429,12 @@ export default function Home() {
       
       {/* Right Side - Content */}
       <div className="lg:w-1/2 lg:pl-10">
-        <h3 className="text-yellow-500 text-xl font-bold">Recipes</h3>
-        <h2 className="text-4xl font-extrabold text-white mt-3">Protein-packed power bowl</h2>
+        <h3 className="text-yellow-500 text-xl font-bold">Gym Fuel</h3>
+        <h2 className="text-4xl font-extrabold text-white mt-3">FitMaker Protein Power</h2>
         <p className="text-slate-400 mt-4 leading-relaxed">
-          A colorful protein-packed power bowl filled with flavorful, meaty grilled satay tofu and an
-          array of vibrant veggies on a bed of fluffy quinoa. Completed with a healthy and delicious
-          satay dipping sauce and crushed roasted peanuts. Delicious!
+        Unleash your inner beast with this FitMaker-approved protein powerhouse.
+        Topped with a extra edge—crafted to fuel your fitness journey, the FitMaker way!
+        and a garlic-hummus kick—topped with chia seeds. Pure FitMaker fuel!
         </p>
         
         {/* View Full Recipe Button */}
