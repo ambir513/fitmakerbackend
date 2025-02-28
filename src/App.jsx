@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import './index.css';
 import { useEffect, useState } from "react";
@@ -36,10 +37,44 @@ function App() {
 
   return isLoading ? (<Loader />) :
     (<Router>
+=======
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
+import Loader from "./assets/Loader"; // Ensure this file exists
+import Header from "./assets/Header";
+import Footer from "./assets/Footer";
+import Home from "./assets/Home";
+import About from "./assets/About";
+import Contact from "./assets/Contact";
+import Shop from "./assets/Shop";
+import Card from "./assets/Card";
+import Join from "./assets/Join";
+import Cart from "./assets/Cart";
+import Purchase from "./assets/Purchase";
+
+
+function App() {
+  const User = !!localStorage.getItem("token");
+  const [isLoading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []); // Empty dependency array to prevent infinite re-renders
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  return (
+    <Router>
+>>>>>>> a8014084ab8f8e11a7185214e906c89440cb7209
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+<<<<<<< HEAD
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/card/:profileId" element={<Card />} />
@@ -61,6 +96,18 @@ function App() {
       </Routes>
       <Footer />
     </Router>)
+=======
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/Shop" element={<Shop/>} />
+        <Route path="Card/:profileId" element={<Card/>} />
+        <Route path="Join/:profileId" element={<Join/>} />
+        <Route path="Cart/:profileId" element={<Cart/>} />
+        <Route path="Purchase/:profileId" element={<Purchase/>} />
+      </Routes>
+      <Footer />
+    </Router>
+  );
+>>>>>>> a8014084ab8f8e11a7185214e906c89440cb7209
 }
 
-export default App
+export default App;
