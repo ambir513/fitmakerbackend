@@ -1,63 +1,46 @@
-# FitMaker
+# FitMaker - Frontend
 
-FitMaker is a full-stack web application designed to help users manage their diet, fitness, and workout routines efficiently. Built with modern technologies, it provides an interactive and seamless experience for fitness enthusiasts.
+FitMaker frontend is built using modern web technologies to deliver a smooth and interactive user experience for fitness tracking.
 
 ## 🚀 Features
-- User authentication and authorization (JWT & bcrypt)
-- Personalized diet and workout plans
-- Progress tracking and analytics
-- Email notifications via Nodemailer
-- Responsive and modern UI with Tailwind & ShadCN
-- Secure API with Express middlewares
+- Responsive UI with Tailwind CSS
+- Client-side routing with React Router
+- Interactive UI components from ShadCN/UI & Aceternity-UI
+- Toast notifications with Sonner
 
 ## 🛠 Tech Stack
-### Frontend
 - **React**: Component-based UI development
 - **React Router**: Client-side navigation
 - **Tailwind CSS**: Utility-first styling framework
 - **ShadCN/UI & Aceternity-UI**: UI components for enhanced design
 - **Sonner**: Beautiful toast notifications
 
-### Backend
-- **Node.js**: Runtime environment
-- **Express.js**: Web framework
-- **Express Router**: Modular API structure
-- **Express Async Handler**: Efficient error handling
-- **Middlewares**: CORS, body-parser, JWT authentication, etc.
-
-### Database
-- **MongoDB**: NoSQL database
-- **Mongoose**: ODM for MongoDB
-
-### Other Packages
-- **JWT**: Secure user authentication
-- **Bcrypt**: Password hashing
-- **Body-parser**: Handling request bodies
-- **Cors**: Enabling cross-origin requests
-- **Dotenv**: Environment variable management
-- **Nodemailer**: Email notifications
-
 ## 📂 Project Setup
-
-### Backend Setup
-```sh
-cd backend
-npm install
-npm start
-```
-
-### Frontend Setup
 ```sh
 cd frontend
 npm install
 npm start
 ```
+## 🔗 Backend Repository
+[GitHub - FitMaker Backend](https://github.com/ambir513/fitmakerbackend)
+
+## 🌍 Deployment
+The backend is deployed on Vercel: [FitMaker Backend](https://fitmaker-delta.vercel.app/)
 
 ## 🌟 Contributing
 Feel free to contribute by submitting issues or pull requests. Any improvements are welcome!
+
+### Contributors
+- [Jayesh Singh](https://github.com/JayeshSingh5452)
+- [Soyab Shaikh](https://github.com/soyxbshxikh)
+- [Amar Biradar](https://github.com/ambir513)
+- <b>Feel free to contribute by submitting issues or pull requests. Any improvements are welcome!</b>
+
 
 ## 📄 License
 This project is licensed under the MIT License.
 
 ---
 Made with ❤️ for fitness enthusiasts!
+
+---
