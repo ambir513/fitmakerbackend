@@ -32,12 +32,11 @@ npm install
 npm start
 ```
 
-## 🔗 Backend Repository
-[GitHub - FitMaker Backend](https://github.com/ambir513/fitmakerbackend)
+## 🔗 Frontend Repository
+[GitHub - FitMaker Frontend](https://github.com/ambir513/FitMaker)
 
 ## 🌍 Deployment
 The backend is deployed on Vercel: [FitMaker Backend](https://fitmakerbackend.vercel.app/)
-[GitHub - FitMaker Backend](https://github.com/ambir513/fitmakerbackend)
 
 ## 🌟 Contributing
 Feel free to contribute by submitting issues or pull requests. Any improvements are welcome!
