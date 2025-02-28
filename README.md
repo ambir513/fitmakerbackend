@@ -34,7 +34,8 @@ Feel free to contribute by submitting issues or pull requests. Any improvements 
 - [Jayesh Singh](https://github.com/JayeshSingh5452)
 - [Soyab Shaikh](https://github.com/soyxbshxikh)
 - [Amar Biradar](https://github.com/ambir513)
-Feel free to contribute by submitting issues or pull requests. Any improvements are welcome!
+- <b>Feel free to contribute by submitting issues or pull requests. Any improvements are welcome!</b>
+
 
 ## 📄 License
 This project is licensed under the MIT License.
