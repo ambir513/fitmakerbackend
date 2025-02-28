@@ -87,7 +87,7 @@ function Filter() {
       Dinner,
       Hydration
     }).catch((error) => {
-      console.log(error);
+      console.log(error)
     })
     const message = saveResponse.data.message
     toast.success(message);

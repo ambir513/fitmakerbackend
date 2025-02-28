@@ -2,24 +2,25 @@ import React, { Profiler } from 'react'
 import ff1 from "./ff1.webp"; // Adjust path if needed
 import { Link } from 'react-router-dom';
 
+
 const products = [
-  { id: 1, name: "Lexicon Luxe - Tshirt", price: "$100.00", image: "https://www.bullrockfitness.com/wp-content/uploads/2021/05/dont-touch-my-bar-1.jpg" },
-  { id: 2, name: "Adjective Attire - Tshirt", price: "$120.00", image: "https://readymadeui.com/images/fashion-img-2.webp" },
-  { id: 3, name: "ThreadCraft Vibes - Tshirt", price: "$140.00", image: "https://readymadeui.com/images/fashion-img-3.webp" },
-  { id: 4, name: "Verbal Vogue Tees - Tshirt", price: "$120.00", image: "https://readymadeui.com/images/fashion-img-4.webp" },
-  { id: 5, name: "Jargon Jungle - Tshirt", price: "$150.00", image: "https://readymadeui.com/images/fashion-img-5.webp" },
-  { id: 6, name: "Syllable Streetwear - Tshirt", price: "$140.00", image: "https://readymadeui.com/images/fashion-img-6.webp" },
-  { id: 7, name: "Syllable Streetwear - Tshirt", price: "$140.00", image: "https://readymadeui.com/images/fashion-img-7.webp" },
-  { id: 8, name: "Syllable Streetwear - Tshirt", price: "$140.00", image: "https://readymadeui.com/images/fashion-img-9.webp" },
+  { id: 1, name: "AUSK Men  - Tshirt", price: "$100.00", image: "https://www.bullrockfitness.com/wp-content/uploads/2021/05/dont-touch-my-bar-1.jpg" },
+  { id: 2, name: "SLOVIC Dumbbell - Dumbbells", price: "$120.00", image: "https://www.bullrockfitness.com/wp-content/uploads/2021/12/Hex-Dumbbells-1.jpg" },
+  { id: 3, name: " Indoor Stationary - Air Bike", price: "$140.00", image: "https://cdn.shopify.com/s/files/1/0471/3332/7519/files/10-best-and-worst-cardio-machines-v2-10.jpg?v=1730755039" },
+  { id: 4, name: "Yoga Ball  - Balloon ", price: "$120.00", image: "https://cdn.mos.cms.futurecdn.net/gxWm3asdF6AAe2rR9ziao8-1200-80.jpg" },
+  { id: 5, name: "Adjustable Dumbbell  - (Metal Integrated)", price: "$150.00", image: "https://leewayfitness.in/wp-content/uploads/2024/12/Adjustable-Dumbbell-Colour-600-03.jpg" },
+  { id: 6, name: "Cast Iron Kettlebells - 2.0", price: "$140.00", image: "https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2023%2F10%2Fnike-strength-gym-equipment-announcement-release-info-001.jpg?q=75&w=800&cbr=1&fit=max" },
+  { id: 7, name: "Fingers Hand Grip - Fitness Grip", price: "$14.00", image: "https://m.media-amazon.com/images/I/51nUhyULa1L._AC._SR360,460.jpg" }, // Changed name for uniqueness
+  { id: 8, name: "Resistance Band Set -  Exercise Bands", price: "$140.00", image: "https://www.mensjournal.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTk2MTM2MDg5Mzk2Mzg5MDA5/smartgym.jpg" }, // Changed name for uniqueness
 ];
 
 const sneakers = [
-  { id: 1, name: "Sole Elegance", price: "$10", image: "https://readymadeui.com/images/product9.webp", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
-  { id: 2, name: "Urban Sneakers", price: "$12", image: "https://readymadeui.com/images/product10.webp", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
-  { id: 3, name: "Velvet Boots", price: "$14", image: "https://readymadeui.com/images/product11.webp", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
-  { id: 4, name: "Summit Hiking", price: "$12", image: "https://readymadeui.com/images/product12.webp", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
-  { id: 5, name: "Zenith Glow", price: "$15", image: "https://readymadeui.com/images/product13.webp", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
-  { id: 6, name: "Echo Elegance", price: "$14", image: "https://readymadeui.com/images/product14.webp", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+  { id: 1, name: "Sole Elegance", price: "$10", image: "https://m.media-amazon.com/images/I/710qoIH9YRL._AC_UL480_FMwebp_QL65_.jpg", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+  { id: 2, name: "Urban Sneakers", price: "$12", image: "https://m.media-amazon.com/images/I/41E3fWK+ebL._SY300_SX300_.jpg", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+  { id: 3, name: "Velvet Boots", price: "$14", image: "https://m.media-amazon.com/images/I/816aYlpJzzL._SX679_.jpg", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+  { id: 4, name: "Summit Hiking", price: "$12", image: "https://m.media-amazon.com/images/I/71YRNKpXGrL._SX679_.jpg", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+  { id: 5, name: "Zenith Glow", price: "$15", image: "https://m.media-amazon.com/images/I/71q3EIbpEeL._SX679_.jpg", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+  { id: 6, name: "Echo Elegance", price: "$14", image: "https://m.media-amazon.com/images/I/61Le0NNy8FL._SX679_PIbundle-2,TopRight,0,0_AA679SH20_.jpg", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
   { id: 7, name: "Pumps", price: "$14", image: "https://readymadeui.com/images/product15.webp", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
   { id: 8, name: "Blaze Burst", price: "$14", image: "https://readymadeui.com/images/product10.webp", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
 ];
@@ -174,7 +175,7 @@ function Shop() {
                       </svg>
                     </div>
                     <Link
-                      to={`/Cart/${Profiler.id}`} // Redirect to Cart page with product ID
+                      to={`/Cart/${sneaker.id}`} // Redirect to Cart page with product ID
                       className="text-sm px-2 h-9 font-semibold w-full bg-blue-600 hover:bg-blue-700 text-white tracking-wide ml-auto outline-none border-none rounded text-center no-underline"
                     >
                       Add to cart
