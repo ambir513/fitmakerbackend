@@ -21,7 +21,6 @@ import Edit from "./Pages/Edit/Edit";
 import Search from "./Pages/Search/Search";
 import Verification from "./Pages/Verification/Verification";
 import Filter from "./Pages/Filter/Filter";
-import Exercise from "./Pages/exercise/Exercise";
 import Research from "./Pages/Research/Research";
 import Purchase from "./Pages/Purchase/Purchase";
 import Card from "./Pages/Purchase/Card";
@@ -70,10 +69,6 @@ function App() {
         <Route
           path="/ai-diet-filter"
           element={isUserSignIn ? <Aifilter /> : <ErrorHandling />}
-        />
-        <Route
-          path="/exercise-filter"
-          element={isUserSignIn ? <Exercise /> : <ErrorHandling />}
         />
         <Route path="/contact" element={<Contact />} />
         <Route path="/search" element={<Search />} />
