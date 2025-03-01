@@ -12,7 +12,11 @@ const app = express()
 const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json())
-app.use(cors())
+app.use(cors({
+    origin: "http://localhost:5173", // Allow frontend origin
+    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed request methods
+    credentials: true, // Allow cookies if needed
+}));
 app.use("/", authRouter)
 app.use("/user", filterRouter)
 
