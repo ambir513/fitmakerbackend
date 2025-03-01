@@ -22,6 +22,7 @@ const userSignup = async (req, res) => {
             email,
             password: hashedPassword,
         })
+        const token = jwt.sign({ username, email }, process.env.SECRET_KEY, { expiresIn: "10m" });
         const transporter = nodemailer.createTransport({
             service: "gmail",
             auth: {
@@ -34,12 +35,13 @@ const userSignup = async (req, res) => {
             from: process.env.AUTH_EMAIL,
             to: email,
             subject: "verify you email",
-            text: `<a href="#">Link</a>`,
+            html: `<p>Click the link below to verify your email:</p>
+           <a href="http://localhost:5173/verify?token=${token}">Verify Email</a>`,
         }
 
         const info = await transporter.sendMail(mailOption);
 
-        return res.status(201).json({ status: "SUCCESS", message: "Please verify your email" })
+        return res.status(201).json({ status: "SUCCESS", message: "Email verification send!" })
 
     } catch (error) {
         res.status(500).json({ status: "FAILED", message: "Error signing up" })
@@ -56,11 +58,11 @@ const userLogin = async (req, res) => {
         }
         const user = await User.findOne({ email })
         if (!user) {
-            return res.status(401).json({ status: "FAILED", message: "User is not avalible, Please Register now" })
+            return res.json({ status: "FAILED", message: "User is not avalible, Please Register now" })
         }
         const passwordValid = await bcrypt.compare(password, user.password)
         if (!passwordValid) {
-            return res.status(401).json({ status: "FAILED", message: "Invalid credentials" })
+            return res.json({ status: "FAILED", message: "Invalid credentials" })
         }
         const token = jwt.sign({
             userId: user._id
@@ -95,13 +97,29 @@ const userVerify = async (req, res) => {
 const userData = async (req, res) => {
     try {
         const { userId } = req.body
-        const user = await User.findOne({ userId })
+        const user = await User.findById(userId)
         if (user) {
             return res.json(user)
         }
     } catch (error) {
-        res.josn({ status: "FAILED", message: "Error in userid" })
+        res.json({ status: "FAILED", message: "Error in userid" })
     }
 }
 
-export { userSignup, userLogin, userVerify, userData }
+
+//@des after verify the email
+//@routes POST / 
+const userVerifyEmail = async (req, res) => {
+    const token = req.query.token
+    if (!token) {
+        return res.json({ status: "FAILED", message: "Invalid or expired token" })
+    }
+    try {
+        const decoded = jwt.verify(token, process.env.SECRET_KEY);
+        return res.json({ status: "SUCCESS", message: "Email verified successfully!", user: decoded });
+    } catch (error) {
+        return res.json({ status: "FAILED", message: "Token has expired or is invalid" });
+    }
+}
+
+export { userSignup, userLogin, userVerify, userData, userVerifyEmail }
