@@ -33,7 +33,7 @@ npm start
 ```
 
 ## 🔗 Frontend Repository
-[GitHub - FitMaker Frontend](https://github.com/ambir513/FitMaker)
+[GitHub - FitMaker Frontend](https://github.com/JayeshSingh5452/FitMaker)
 
 ## 🌍 Deployment
 The backend is deployed on Vercel: [FitMaker Backend](https://fitmakerbackend.vercel.app/)
