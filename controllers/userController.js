@@ -69,7 +69,7 @@ const userLogin = async (req, res) => {
         },
             process.env.SECRET_KEY,
             {
-                expiresIn: "1hr"
+                expiresIn: "30d"
             }
         )
         res.json({ status: "SUCCESS", message: "Login successfull", token })
