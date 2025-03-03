@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json())
 app.use(cors({
-    origin: "http://localhost:5173", // Allow frontend origin
+    origin: "https://fitmakerr.vercel.app/", // Allow frontend origin
     methods: ["GET", "POST", "PUT", "DELETE"], // Allowed request methods
     credentials: true, // Allow cookies if needed
 }));
