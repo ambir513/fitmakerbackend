@@ -36,7 +36,7 @@ const userSignup = async (req, res) => {
             to: email,
             subject: "verify you email",
             html: `<p>Click the link below to verify your email:</p>
-           <a href="http://localhost:5173/verify?token=${token}">Verify Email</a>`,
+           <a href="https://fitmakerr.vercel.app/verify?token=${token}">Verify Email</a>`,
         }
 
         const info = await transporter.sendMail(mailOption);
