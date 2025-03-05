@@ -10,7 +10,13 @@ const userSignup = async (req, res) => {
     try {
         const { username, email, password } = req.body
         if (!username || !email || !password) {
-            return res.json({ message: "All fields are mandatory" })
+            return res.json({ message: "All fields are mandatory" });
+        } else if (!/^[A-Za-z\s]{2,50}$/.test(username)) {
+            return res.json({ message: "Invalid name" });
+        } else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+            return res.json({ message: "Invalid email" });
+        } else if (!/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password)) {
+            return res.json({ message: "Invalid strong password" });
         }
         const hashedPassword = await bcrypt.hash(password, 10)
         const userExists = await User.findOne({ email })
