@@ -1,7 +1,6 @@
 import User from "../models/userModel.js"
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
-import nodemailer from "nodemailer"
 
 //@des Create a User
 //@route POST /register
@@ -22,25 +21,6 @@ const userSignup = async (req, res) => {
             email,
             password: hashedPassword,
         })
-        const token = jwt.sign({ username, email }, process.env.SECRET_KEY, { expiresIn: "10m" });
-        const transporter = nodemailer.createTransport({
-            service: "gmail",
-            auth: {
-                user: process.env.AUTH_EMAIL,
-                pass: process.env.AUTH_PASS
-            }
-        })
-
-        const mailOption = {
-            from: process.env.AUTH_EMAIL,
-            to: email,
-            subject: "verify you email",
-            html: `<p>Click the link below to verify your email:</p>
-           <a href="https://fitmakerr.vercel.app/verify?token=${token}">Verify Email</a>`,
-        }
-
-        const info = await transporter.sendMail(mailOption);
-
         return res.status(201).json({ status: "SUCCESS", message: "Email verification send!" })
 
     } catch (error) {
