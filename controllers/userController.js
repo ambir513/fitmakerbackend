@@ -44,7 +44,7 @@ const userSignup = async (req, res) => {
         return res.status(201).json({ status: "SUCCESS", message: "Email verification send!" })
 
     } catch (error) {
-        res.status(500).json({ status: "FAILED", message: "Error signing up" })
+        res.status(500).json({ status: "FAILED", message: error.message })
     }
 }
 //@des Login User
