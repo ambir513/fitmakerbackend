@@ -21,7 +21,7 @@ const userSignup = async (req, res) => {
             email,
             password: hashedPassword,
         })
-        return res.status(201).json({ status: "SUCCESS", message: "Email verification send!" })
+        return res.status(201).json({ status: "SUCCESS", message: "Created Successfully" })
 
     } catch (error) {
         res.status(500).json({ status: "FAILED", message: error.message })
