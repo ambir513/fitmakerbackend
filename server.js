@@ -12,7 +12,10 @@ const app = express()
 const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json())
-app.use(cors());
+app.use(cors({
+  origin: "https://fitmakerr.vercel.app", // your frontend URL
+  credentials: true // if you're sending cookies or auth headers
+}));
 app.use("/", authRouter)
 app.use("/user", filterRouter)
 
